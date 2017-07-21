@@ -1,0 +1,526 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.loria.fr/pgxo/"
+     xml:base="http://www.loria.fr/pgxo/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:pgxo="http://www.loria.fr/pgxo/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://www.loria.fr/pgxo/">
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
+        <dc:creator>Pierre Monnin, Loria - Inria, Université de Lorraine</dc:creator>
+        <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
+        <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
+        <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
+        <rdfs:comment>The ontology aims at providing a small set of concepts and roles that may type elements of pharmacogenomics relationships.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loria.fr/pgxo/causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/causes">
+        <owl:inverseOf rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/isCausedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/isCausedBy"/>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/partOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/partOf">
+        <rdfs:domain rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:range rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loria.fr/pgxo/confidence -->
+
+    <owl:DatatypeProperty rdf:about="http://www.loria.fr/pgxo/confidence">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Disease -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Disease">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Drug -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Drug">
+        <rdfs:label>Drug</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Gene -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Gene">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+        <rdfs:label>Gene</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/GeneticFactor -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/GeneticFactor">
+        <rdfs:label>Genetic factor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/GenomicVariation -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/GenomicVariation">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+        <rdfs:label>Genomic variation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Haplotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Haplotype">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:label>Haplotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/PharmacogenomicRelationship -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/PharmacogenomicRelationship">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/causes"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/causes"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/causes"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:label>Pharmacogenomic relationship</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Phenotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Phenotype">
+        <rdfs:label>Phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Variant -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Variant">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:label>Variant</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loria.fr/pgxo/CYP2C9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/CYP2C9">
+        <rdf:type rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+        <causes rdf:resource="http://www.loria.fr/pgxo/warfarin_CYP2C9"/>
+        <causes rdf:resource="http://www.loria.fr/pgxo/warfarin_CYP2C9_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Clinical_Data_Warehouse -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Clinical_Data_Warehouse">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasAttributedTo rdf:resource="http://www.loria.fr/pgxo/Paris_University_Hospital"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Extract1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Extract1">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <prov:used rdf:resource="http://www.loria.fr/pgxo/pgkbid:981238341"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/MiningAlgo -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/MiningAlgo">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/MiningAlgo_v1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/MiningAlgo_v1">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <prov:specializationOf rdf:resource="http://www.loria.fr/pgxo/MiningAlgo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/NLM -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/NLM">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Paris_University_Hospital -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Paris_University_Hospital">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/PharmGKB -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/PharmGKB">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/PharmGKB_v2016-10-05 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/PharmGKB_v2016-10-05">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasAttributedTo rdf:resource="http://www.loria.fr/pgxo/PharmGKB"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/PubMed -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/PubMed">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasAttributedTo rdf:resource="http://www.loria.fr/pgxo/NLM"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Run1a -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Run1a">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <prov:used rdf:resource="http://www.loria.fr/pgxo/pmid:26812933"/>
+        <prov:wasAssociatedWith rdf:resource="http://www.loria.fr/pgxo/SemMed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Run1b -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Run1b">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <prov:used rdf:resource="http://www.loria.fr/pgxo/Clinical_Data_Warehouse"/>
+        <prov:wasAssociatedWith rdf:resource="http://www.loria.fr/pgxo/MiningAlgo_v1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Run1c -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Run1c">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <prov:used rdf:resource="http://www.loria.fr/pgxo/pmid:18025525"/>
+        <prov:wasAssociatedWith rdf:resource="http://www.loria.fr/pgxo/Facta+_v0.8"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/SemMed -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/SemMed">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/generation1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/generation1">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+        <prov:activity rdf:resource="http://www.loria.fr/pgxo/Extract1"/>
+        <confidence rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A1</confidence>
+        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-24T17:29:00Z</prov:atTime>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/generation2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/generation2">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+        <prov:activity rdf:resource="http://www.loria.fr/pgxo/Run1a"/>
+        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-25T22:59:00Z</prov:atTime>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/generation3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/generation3">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+        <prov:activity rdf:resource="http://www.loria.fr/pgxo/Run1b"/>
+        <confidence rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.70</confidence>
+        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-30T11:20:00Z</prov:atTime>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/generation4 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/generation4">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+        <prov:activity rdf:resource="http://www.loria.fr/pgxo/Run1c"/>
+        <prov:atTime rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2017-03-26T01:00:00Z</prov:atTime>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/warfarin -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/warfarin">
+        <rdf:type rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <causes rdf:resource="http://www.loria.fr/pgxo/warfarin_CYP2C9"/>
+        <causes rdf:resource="http://www.loria.fr/pgxo/warfarin_CYP2C9_1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/warfarin_CYP2C9 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/warfarin_CYP2C9">
+        <rdf:type rdf:resource="http://www.loria.fr/pgxo/PharmacogenomicRelationship"/>
+        <prov:qualifiedGeneration rdf:resource="http://www.loria.fr/pgxo/generation1"/>
+        <prov:qualifiedGeneration rdf:resource="http://www.loria.fr/pgxo/generation2"/>
+        <prov:qualifiedGeneration rdf:resource="http://www.loria.fr/pgxo/generation3"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/Clinical_Data_Warehouse"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/pgkbid:981238341"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/pmid:26812933"/>
+        <prov:wasGeneratedBy rdf:resource="http://www.loria.fr/pgxo/Extract1"/>
+        <prov:wasGeneratedBy rdf:resource="http://www.loria.fr/pgxo/Run1a"/>
+        <prov:wasGeneratedBy rdf:resource="http://www.loria.fr/pgxo/Run1b"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/warfarin_CYP2C9_1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/warfarin_CYP2C9_1">
+        <rdf:type rdf:resource="http://www.loria.fr/pgxo/PharmacogenomicRelationship"/>
+        <prov:qualifiedGeneration rdf:resource="http://www.loria.fr/pgxo/generation4"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/pmid:18025525"/>
+        <prov:wasGeneratedBy rdf:resource="http://www.loria.fr/pgxo/Run1c"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Facta+ -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Facta+">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Facta+_v0.8 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/Facta+_v0.8">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <prov:specializationOf rdf:resource="http://www.loria.fr/pgxo/Facta+"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/pgkbid:981238341 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/pgkbid:981238341">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/PharmGKB_v2016-10-05"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/pmid:18025525 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/pmid:18025525">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/PubMed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/pmid:26812933 -->
+
+    <owl:NamedIndividual rdf:about="http://www.loria.fr/pgxo/pmid:26812933">
+        <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <prov:wasDerivedFrom rdf:resource="http://www.loria.fr/pgxo/PubMed"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.loria.fr/pgxo/warfarin_CYP2C9_1"/>
+        </owl:oneOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.loria.fr/pgxo/warfarin_CYP2C9"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

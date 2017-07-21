@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.loria.fr/pgxo/mappings/"
+     xml:base="http://www.loria.fr/pgxo/mappings/"
+     xmlns:NCIT="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:MESHST="http://purl.bioontology.org/ontology/STY/"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:MESH="http://purl.bioontology.org/ontology/MESH/"
+     xmlns:pgxo="http://www.loria.fr/pgxo/"
+     xmlns:SNOMEDCT="http://purl.bioontology.org/ontology/SNOMEDCT/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.loria.fr/pgxo/mappings/">
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
+        <rdfs:comment>mappings from PGxO to MeSH, NCIt and SNOMED CT.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.loria.fr/pgxo/causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/causes">
+        <owl:equivalentProperty rdf:resource="http://www.stanford.edu/~coulet/phare.owl#causes"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.stanford.edu/~coulet/phare.owl#causes -->
+
+    <owl:ObjectProperty rdf:about="http://www.stanford.edu/~coulet/phare.owl#causes"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16277 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16277">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:label>Allele</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+        <rdfs:label>Gene</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16977 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16977">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1909 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1909">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <rdfs:label>Pharmacologic Substance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2991 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2991">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Disease"/>
+        <rdfs:label>Disease or Disorder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C63547 -->
+
+    <owl:Class rdf:about="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C63547">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Haplotype"/>
+        <rdfs:label>Haplotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/MESH/D000483 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/MESH/D000483">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:label>Alleles</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/MESH/D004194 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/MESH/D004194">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Disease"/>
+        <rdfs:label>Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/MESH/D005796 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/MESH/D005796">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+        <rdfs:label>Genes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/MESH/D006239 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/MESH/D006239">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Haplotype"/>
+        <rdfs:label>Haplotypes</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/MESH/D010641 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/MESH/D010641">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/410942007 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/410942007">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <rdfs:label>Drug or medicament</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/64572001 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/64572001">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Disease"/>
+        <rdfs:label>Disease</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/67271001 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/67271001">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+        <rdfs:label>Gene</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/8116006 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/8116006">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Phenotype</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/SNOMEDCT/9109004 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/SNOMEDCT/9109004">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:label>Genetic alleles</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.bioontology.org/ontology/STY/T121 -->
+
+    <owl:Class rdf:about="http://purl.bioontology.org/ontology/STY/T121">
+        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <rdfs:label>Pharmacologic Substance</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Disease -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Disease">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Drug -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Drug"/>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Gene -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Gene">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/GeneticFactor -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/GeneticFactor"/>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/GenomicVariation -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/GenomicVariation">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Haplotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Haplotype">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/PharmacogenomicRelationship -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/PharmacogenomicRelationship"/>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Phenotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Phenotype"/>
+    
+
+
+    <!-- http://www.loria.fr/pgxo/Variant -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/Variant">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
+
