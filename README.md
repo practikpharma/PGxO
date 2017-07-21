@@ -15,6 +15,6 @@ Documentation is available in the ``doc/`` folder:
 * [mapp2.owl](doc/mapp2.owl): Mappings from PGxO to three large spectrum ontologies
 
 
-## Acknowledgment
+## Acknowledgments
 
 PGxO is supported by the *PractiKPharma* project (http://practikpharma.loria.fr/), funded by the French National Research Agency (ANR) under grant ANR-15-CE23-0028.
