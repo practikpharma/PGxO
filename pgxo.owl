@@ -7,20 +7,38 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:pgxo="http://www.loria.fr/pgxo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+     xmlns:ro="http://purl.obolibrary.org/obo/"
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://www.loria.fr/pgxo/">
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
-        <dc:creator>Pierre Monnin, Loria - Inria, Université de Lorraine</dc:creator>
+        <dc:creator>Pierre Monnin, Loria (CNRS, Inria Nancy-Grand Est, Université de Lorraine)</dc:creator>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version 0.3
+
+Changelog:
+- Remove pgxo:partOf
+- Remove pgxo:confidence
+- Add pgxo:PharmacokineticPhenotype as subclass of pgxo:Phenotype
+- Add pgxo:PharmacodynamicPhenotype as subclass of pgxo:Phenotype
+- Add pgxo:qualifiedVariation
+- Add pgxo:qualifiedProxy
+- Add ro:dependsOn
+- Add ro:partOf and ro:hasPart (inverse relations)
+- Add dul:Entity
+- Add dul:Quality (subclass of dul:Entity)
+- Add dul:hasQuality (dul:Entity -&gt; dul:Quality)
+- Add dul:hasDataValue (dul:Entity -&gt; literal)
+- Define prov:Generation as subclass of dul:Entity
+- Update PharmacogenomicRelationship subsumption axiom</owl:versionInfo>
         <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
         <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
         <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
         <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Annotation properties
@@ -28,16 +46,16 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -45,7 +63,32 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000050 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000050">
+        <owl:inverseOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000051"/>
+        <rdfs:label xml:lang="en">part of</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000051 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/BFO_0000051">
+        <rdfs:label xml:lang="en">has part</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://purl.obolibrary.org/obo/RO_0002502 -->
+
+    <owl:ObjectProperty rdf:about="http://purl.obolibrary.org/obo/RO_0002502">
+        <rdfs:label xml:lang="en">depends on</rdfs:label>
+    </owl:ObjectProperty>
+
 
 
     <!-- http://www.loria.fr/pgxo/causes -->
@@ -53,25 +96,40 @@
     <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/causes">
         <owl:inverseOf rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/isCausedBy -->
 
     <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/isCausedBy"/>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/partOf -->
 
-    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/partOf">
-        <rdfs:domain rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
-        <rdfs:range rdf:resource="http://www.loria.fr/pgxo/Gene"/>
+    <!-- http://www.loria.fr/pgxo/qualifiedProxy -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/qualifiedProxy">
     </owl:ObjectProperty>
-    
 
 
-    <!-- 
+
+    <!-- http://www.loria.fr/pgxo/qualifiedVariation -->
+
+    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/qualifiedVariation">
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality -->
+
+    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
+        <rdfs:label xml:lang="en">has quality</rdfs:label>
+    </owl:ObjectProperty>
+
+
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -79,18 +137,19 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
 
-    <!-- http://www.loria.fr/pgxo/confidence -->
 
-    <owl:DatatypeProperty rdf:about="http://www.loria.fr/pgxo/confidence">
-        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Generation"/>
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+
+    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue">
+        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:label xml:lang="en">has data value</rdfs:label>
     </owl:DatatypeProperty>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -98,7 +157,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/Disease -->
@@ -107,7 +166,7 @@
         <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
         <rdfs:label>Disease</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/Drug -->
@@ -115,7 +174,7 @@
     <owl:Class rdf:about="http://www.loria.fr/pgxo/Drug">
         <rdfs:label>Drug</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/Gene -->
@@ -124,7 +183,7 @@
         <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
         <rdfs:label>Gene</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/GeneticFactor -->
@@ -132,7 +191,7 @@
     <owl:Class rdf:about="http://www.loria.fr/pgxo/GeneticFactor">
         <rdfs:label>Genetic factor</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/GenomicVariation -->
@@ -141,7 +200,7 @@
         <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
         <rdfs:label>Genomic variation</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/Haplotype -->
@@ -150,7 +209,16 @@
         <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
         <rdfs:label>Haplotype</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://www.loria.fr/pgxo/PharmacodynamicPhenotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/PharmacodynamicPhenotype">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Pharmacodynamic Phenotype</rdfs:label>
+    </owl:Class>
+
 
 
     <!-- http://www.loria.fr/pgxo/PharmacogenomicRelationship -->
@@ -203,6 +271,38 @@
                     <owl:Class>
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/causes"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.loria.fr/pgxo/Phenotype"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
+                                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://www.loria.fr/pgxo/Phenotype"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
+                                                <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://www.loria.fr/pgxo/isCausedBy"/>
                                 <owl:someValuesFrom rdf:resource="http://www.loria.fr/pgxo/Drug"/>
                             </owl:Restriction>
@@ -217,7 +317,16 @@
         </rdfs:subClassOf>
         <rdfs:label>Pharmacogenomic relationship</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://www.loria.fr/pgxo/PharmacokineticPhenotype -->
+
+    <owl:Class rdf:about="http://www.loria.fr/pgxo/PharmacokineticPhenotype">
+        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:label>Pharmacokinetic Phenotype</rdfs:label>
+    </owl:Class>
+
 
 
     <!-- http://www.loria.fr/pgxo/Phenotype -->
@@ -225,7 +334,7 @@
     <owl:Class rdf:about="http://www.loria.fr/pgxo/Phenotype">
         <rdfs:label>Phenotype</rdfs:label>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/pgxo/Variant -->
@@ -234,21 +343,39 @@
         <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
         <rdfs:label>Variant</rdfs:label>
     </owl:Class>
-    
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">
+        <rdfs:label xml:lang="en">Entity</rdfs:label>
+    </owl:Class>
+
+
+
+    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality -->
+
+    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+        <rdfs:label xml:lang="en">Quality</rdfs:label>
+    </owl:Class>
+
 
 
     <!-- http://www.w3.org/ns/prov#Entity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
-    
+
 
 
     <!-- http://www.w3.org/ns/prov#Generation -->
 
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Generation"/>
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Generation">
+        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
+    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
-
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
