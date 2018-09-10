@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1536575864442" name="http://www.loria.fr/pgxo/" uri="pgxo.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1536575864442" name="duplicate:http://www.loria.fr/pgxo/mappings/" uri="doc/mapp2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1536575864442" name="duplicate:http://www.loria.fr/pgxo/mappings/" uri="doc/mapp1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1536575864442" name="shadowed:http://www.loria.fr/pgxo/" uri="doc/pgxo_with_instances.owl"/>
+    </group>
+</catalog>
