@@ -10,32 +10,144 @@
      xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
      xmlns:ro="http://purl.obolibrary.org/obo/"
      xmlns:prov="http://www.w3.org/ns/prov#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:omv="http://omv.ontoware.org/2005/05/ontology#" 
+     xmlns:dcterms="http://purl.org/dc/terms/"
+	 xmlns:foaf="http://xmlns.com/foaf/0.1/"     
+ 	 xmlns:door="http://kannel.open.ac.uk/ontology#"
+	 xmlns:lexvo="http://lexvo.org/ontology#"
+	 xmlns:void="http://rdfs.org/ns/void#"
+	 xmlns:vann="http://purl.org/vocab/vann/"
+	 xmlns:adms="http://www.w3.org/ns/adms#"
+	 xmlns:voaf="http://purl.org/vocommons/voaf#"
+ 	 xmlns:doap="http://usefulinc.com/ns/doap#"
+	 xmlns:mod="http://www.isibang.ac.in/ns/mod#"
+	 xmlns:sd="http://www.w3.org/ns/sparql-service-description#"
+     >
+
+<!--DESCRIPTION OF THE ONTOLOGY AND ITS METADATA -->
+
     <owl:Ontology rdf:about="http://www.loria.fr/pgxo/">
-        <dc:creator>Pierre Monnin, Loria (CNRS, Inria Nancy-Grand Est, Université de Lorraine)</dc:creator>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version 0.3
+    	<rdf:type rdf:resource="http://omv.ontoware.org/2005/05/ontology#Ontology"/>
 
-Changelog:
-- Remove pgxo:partOf
-- Remove pgxo:confidence
-- Add pgxo:PharmacokineticPhenotype as subclass of pgxo:Phenotype
-- Add pgxo:PharmacodynamicPhenotype as subclass of pgxo:Phenotype
-- Add pgxo:qualifiedVariation
-- Add pgxo:qualifiedProxy
-- Add ro:dependsOn
-- Add ro:partOf and ro:hasPart (inverse relations)
-- Add dul:Entity
-- Add dul:Quality (subclass of dul:Entity)
-- Add dul:hasQuality (dul:Entity -&gt; dul:Quality)
-- Add dul:hasDataValue (dul:Entity -&gt; literal)
-- Define prov:Generation as subclass of dul:Entity
-- Update PharmacogenomicRelationship subsumption axiom</owl:versionInfo>
-        <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
-        <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
-        <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
-        <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
-    </owl:Ontology>
+	<!-- GENERAL DESCRIPTION -->
+	<dcterms:title xml:lang="en">Simple Pharmacogenomics Ontology</dcterms:title>
+	<dcterms:title xml:lang="fr">Ontology simple de pharmacogenomique</dcterms:title>
+	<dcterms:alternative xml:lang="en">Lite Pharmacogenomics Ontology</dcterms:alternative>
+	<omv:acronym>PGxO</omv:acronym>
+	<omv:URI>http://www.loria.fr/pgxo/</omv:URI>
+	<rdfs:comment>Work in progress within PractiKPharma project. Contact us for more information.</rdfs:comment>
+	<vann:changes rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		Change log (v0.3):
+		- Remove pgxo:partOf
+		- Remove pgxo:confidence
+		- Add pgxo:PharmacokineticPhenotype as subclass of pgxo:Phenotype
+		- Add pgxo:PharmacodynamicPhenotype as subclass of pgxo:Phenotype
+		- Add pgxo:qualifiedVariation
+		- Add pgxo:qualifiedProxy
+		- Add ro:dependsOn
+		- Add ro:partOf and ro:hasPart (inverse relations)
+		- Add dul:Entity
+		- Add dul:Quality (subclass of dul:Entity)
+		- Add dul:hasQuality (dul:Entity -&gt; dul:Quality)
+		- Add dul:hasDataValue (dul:Entity -&gt; literal)
+		- Define prov:Generation as subclass of dul:Entity
+		- Update PharmacogenomicRelationship subsumption axiom
+	</vann:changes>
+	<owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.3</owl:versionInfo>
+	<voaf:toDoList rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		- Point 1
+		- Point 2
+	</voaf:toDoList>
+	
+	<!-- FORMAT & AVAILABILITY -->
+	<foaf:homepage>https://github.com/practikpharma/PGxO</foaf:homepage>
+	<rdfs:seeAlso>http://bioportal.bioontology.org/ontologies/PGXO</rdfs:seeAlso>
+	<omv:resourceLocator>https://raw.githubusercontent.com/practikpharma/PGxO/master/pgxo.owl</omv:resourceLocator>
+	<doap:repository>https://github.com/practikpharma/PGxO</doap:repository>
+	<doap:bug-database>https://github.com/practikpharma/PGxO/issues</doap:bug-database>
+	<sd:endpoint>https://pgxlod.loria.fr</sd:endpoint>
+	<omv:isOfType rdf:resource="http://omv.ontoware.org/2005/05/ontology#TaskOntology"/>
+	<omv:hasFormalityLevel rdf:resource="http://omv.ontoware.org/2005/05/ontology#Ontology"/>
+	<omv:hasOntologyLanguage rdf:resource="http://omv.ontoware.org/2005/05/ontology#OWL"/>
+	<omv:hasOntologySyntax rdf:resource="http://www.w3.org/ns/formats/OWL_XML"/>
+	<owl:deprecated rdf:datatype="xsd:boolean">false</owl:deprecated>
+	<omv:status>production</omv:status>
+	<dcterms:license>Open Access (to be further determined)</dcterms:license>
+	<vann:preferredNamespaceUri>http://www.loria.fr/pgxo/</vann:preferredNamespaceUri>
+	<vann:preferredNamespacePrefix>pgxo</vann:preferredNamespacePrefix>
+	<void:uriLookupEndpoint>http://bioportal.bioontology.org/ontologies/PGXO</void:uriLookupEndpoint>
+	<void:openSearchDescription>http://bioportal.bioontology.org/ontologies/PGXO</void:openSearchDescription>
+	<mod:browsingUI>http://bioportal.bioontology.org/ontologies/PGXO/?p=classes</mod:browsingUI>
 
+	<!-- CONTENT DESCRIPTION -->
+	<dcterms:description>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</dcterms:description>
+	<omv:keyClasses>http://www.loria.fr/pgxo/PharmacogenomicRelationship,http://www.loria.fr/pgxo/Drug,http://www.loria.fr/pgxo/Phenotype,http://www.loria.fr/pgxo/GeneticFactor</omv:keyClasses>
+	<omv:keywords>pharmacogenomics, pharmacogenomic relationship, PGx reconciliation, pharmacogenomic knowledge</omv:keywords>
+	<dcterms:subject rdf:resource="http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20050"/>
+	<foaf:depiction rdf:resource="https://github.com/practikpharma/PGxO/blob/master/doc/global-fig.pdf"/>
+	<dcterms:bibliographicCitation>https://www.biorxiv.org/content/biorxiv/early/2018/08/13/390971.full.pdf</dcterms:bibliographicCitation>
+	
+	<!-- ROLE & RATIONALE -->
+	<omv:designedForOntologyTask>Reconciliation of pharmacogenomic knowledge of various provenances, enabling further comparison</omv:designedForOntologyTask>
+	<mod:competencyQuestion>Does PGxO enable to represent a PGx knowledge unit from the PGx state of the art (i.e., from a reference database or extracted from the biomedical literature), along with its provenance?</mod:competencyQuestion>
+	<mod:competencyQuestion>Does PGxO enable to represent a PGx knowledge unit discovered from clinical data, along with its provenance?</mod:competencyQuestion>
+	<mod:competencyQuestion>Does PGxO, coupled with its reconciliation rules, enable to decide if two knowledge units, with distinct provenances, may refer to the same thing?</mod:competencyQuestion>
+	<omv:knownUsage>Within ANR PracticKPharma project to reconcile PGx relationships</omv:knownUsage>
+	<mod:ontologyInUse>http://practikpharma.loria.fr</mod:ontologyInUse>
+	<omv:usedOntologyEngineeringMethodology rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+		- R. Dieng, O. Corby, A. Giboin, and M. Ribiere. Methods and tools for corporate knowledge management. International journal of human-computer studies, 51(3):567–598, 1999.
+		- N. F. Noy, D. L. McGuinness, et al. Ontology development 101: A guide to creating your first ontology, 2001.
+	</omv:usedOntologyEngineeringMethodology>
+	<omv:usedOntologyEngineeringTool rdf:resource="https://protege.stanford.edu"/>
+	<omv:conformsToKnowledgeRepresentationParadigm>Description Logics (ALCI(D))</omv:conformsToKnowledgeRepresentationParadigm>
+	<dcterms:audience>Bioinformaticians, knowledge engineers, clinical decision support systems</dcterms:audience>
+	<foaf:fundedBy>Agence Nationale de la Recherche (ANR-15-CE23-0028)</foaf:fundedBy>
+	<foaf:fundedBy>IDEX Lorraine Université d’Excellence (15-IDEX-0004)</foaf:fundedBy>
+	<foaf:fundedBy>EU H2020 Marie Sklodowska-Curie Action (grant 701771)</foaf:fundedBy>
+	
+	<!-- CREDITS & METHODS -->
+	<dcterms:creator>Pierre Monnin (pierre.monnin@loria.fr)</dcterms:creator>
+	<dcterms:creator>Adrien Coulet (adrien.coulet@loria.fr - https://orcid.org/0000-0002-1466-062X)</dcterms:creator>
+	<dcterms:contributor>Clement Jonquet (jonquet@lirmm.fr - https://orcid.org/0000-0002-2404-1582)</dcterms:contributor>
+	<dcterms:publisher>http://www.loria.fr</dcterms:publisher>
+	<dcterms:rightsHolder>http://www.loria.fr</dcterms:rightsHolder>
+			
+	<!-- RELATED DATES -->
+	<dcterms:created rdf:datatype="xsd:dateTime">2017-03</dcterms:created>
+	<dcterms:modified rdf:datatype="xsd:dateTime">2018-08</dcterms:modified>
+
+	<!-- NATURAL LANGUAGES IN WHICH LABELS ARE AVAILABLE-->
+	<dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/eng"/>
+	<dcterms:language rdf:resource="http://lexvo.org/id/iso639-3/fra"/>
+	
+	<!-- METRICS -->
+	<omv:numberOfClasses rdf:datatype="xsd:integer">16</omv:numberOfClasses>
+	<omv:numberOfIndividuals rdf:datatype="xsd:integer">1</omv:numberOfIndividuals>
+	<omv:numberOfProperties rdf:datatype="xsd:integer">9</omv:numberOfProperties>
+	<omv:numberOfAxioms rdf:datatype="xsd:integer">60</omv:numberOfAxioms>
+	<mod:numberOfLabels rdf:datatype="xsd:integer">18</mod:numberOfLabels>
+	<mod:numberOfObjectProperties rdf:datatype="xsd:integer">8</mod:numberOfObjectProperties>
+	<mod:numberOfDataProperties rdf:datatype="xsd:integer">1</mod:numberOfDataProperties>
+	<mod:byteSize>23Kb</mod:byteSize>
+	
+	<!--RELATION TO OTHER RESOURCES -->
+	<dcterms:hasVersion rdf:resource="https://raw.githubusercontent.com/practikpharma/PGxO/master/doc/pgxo_with_instances.owl"/>
+	<mod:vocabularyUsed rdf:resource="http://www.w3.org/2002/07/owl#"/>
+	<mod:vocabularyUsed rdf:resource="http://www.w3.org/ns/prov#"/>
+	<mod:vocabularyUsed rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"/>
+	<omv:isIncompatibleWith rdf:resource="http://lirmm.fr/2015/ontology/test-ontology.owl"/>
+	<omv:isBackwardCompatibleWith rdf:resource="http://lirmm.fr/2015/ontology/agroportal_ontology_example_v0.1.owl"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/SOPHARM"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/PHARE"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/GENE-CDS"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/MESH"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/NCIT"/>
+	<door:isAlignedTo rdf:resource="http://purl.bioontology.org/ontology/SNOMEDCT"/>
+	<door:comesFromTheSameDomain rdf:resource="http://purl.bioontology.org/ontology/SOPHARM"/>
+	<door:comesFromTheSameDomain rdf:resource="http://purl.bioontology.org/ontology/PHARE"/>
+	<door:comesFromTheSameDomain rdf:resource="http://purl.bioontology.org/ontology/GENE-CDS"/>
+
+</owl:Ontology>
 
 
     <!--
