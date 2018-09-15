@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://www.loria.fr/pgxo/mappings/"
-     xml:base="http://www.loria.fr/pgxo/mappings/"
+<rdf:RDF xmlns="http://pgxo.loria.fr/mappings/"
+     xml:base="http://pgxo.loria.fr/mappings/"
      xmlns:G-CDS="http://www.genomic-cds.org/ont/genomic-cds.owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:SOPHARM="http://www.loria.fr/~coulet/sopharm/"
@@ -8,17 +8,17 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:phare="http://www.stanford.edu/~coulet/phare.owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
-     xmlns:pgxo="http://www.loria.fr/pgxo/"
+     xmlns:pgxo="http://pgxo.loria.fr/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:PO="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#">
-    <owl:Ontology rdf:about="http://www.loria.fr/pgxo/mappings/">
+    <owl:Ontology rdf:about="http://pgxo.loria.fr/mappings/">
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
         <rdfs:comment>mappings from PGxO to SO-PHARM, PO, PHARE and Genomic CDS.</rdfs:comment>
     </owl:Ontology>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -26,24 +26,24 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
 
 
-    <!-- http://www.loria.fr/pgxo/causes -->
 
-    <owl:ObjectProperty rdf:about="http://www.loria.fr/pgxo/causes">
+    <!-- http://pgxo.loria.fr/causes -->
+
+    <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/causes">
         <owl:equivalentProperty rdf:resource="http://www.stanford.edu/~coulet/phare.owl#causes"/>
     </owl:ObjectProperty>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#causes -->
 
     <owl:ObjectProperty rdf:about="http://www.stanford.edu/~coulet/phare.owl#causes"/>
-    
 
 
-    <!-- 
+
+    <!--
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -51,136 +51,136 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
+
 
 
     <!-- http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Disease -->
 
     <owl:Class rdf:about="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Disease">
-        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Disease"/>
+        <owl:equivalentClass rdf:resource="http://pgxo.loria.fr/Disease"/>
     </owl:Class>
-    
+
 
 
     <!-- http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Drug -->
 
     <owl:Class rdf:about="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Drug">
-        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <owl:equivalentClass rdf:resource="http://pgxo.loria.fr/Drug"/>
     </owl:Class>
-    
+
 
 
     <!-- http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Outcome -->
 
     <owl:Class rdf:about="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#Outcome">
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.genomic-cds.org/ont/genomic-cds.owl#allele -->
 
     <owl:Class rdf:about="http://www.genomic-cds.org/ont/genomic-cds.owl#allele">
-        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <owl:equivalentClass rdf:resource="http://pgxo.loria.fr/GenomicVariation"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.genomic-cds.org/ont/genomic-cds.owl#drug -->
 
     <owl:Class rdf:about="http://www.genomic-cds.org/ont/genomic-cds.owl#drug">
-        <owl:equivalentClass rdf:resource="http://www.loria.fr/pgxo/Drug"/>
+        <owl:equivalentClass rdf:resource="http://pgxo.loria.fr/Drug"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Disease -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Disease">
+    <!-- http://pgxo.loria.fr/Disease -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Disease">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Disease"/>
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/Phenotype"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Drug -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Drug">
+    <!-- http://pgxo.loria.fr/Drug -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Drug">
         <owl:equivalentClass rdf:resource="http://www.loria.fr/~coulet/sopharm/SOPHARM_20000"/>
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Drug"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Gene -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Gene">
+    <!-- http://pgxo.loria.fr/Gene -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Gene">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Gene"/>
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/GeneticFactor -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/GeneticFactor"/>
-    
+    <!-- http://pgxo.loria.fr/GeneticFactor -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/GeneticFactor"/>
 
 
-    <!-- http://www.loria.fr/pgxo/GenomicVariation -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/GenomicVariation">
+    <!-- http://pgxo.loria.fr/GenomicVariation -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/GenomicVariation">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#GenomicVariation"/>
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GeneticFactor"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Haplotype -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Haplotype">
+    <!-- http://pgxo.loria.fr/Haplotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Haplotype">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Haplotype"/>
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GenomicVariation"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/PharmacogenomicRelationship -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/PharmacogenomicRelationship">
+    <!-- http://pgxo.loria.fr/PharmacogenomicRelationship -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/PharmacogenomicRelationship">
         <owl:equivalentClass rdf:resource="http://www.loria.fr/~coulet/sopharm/SOPHARM_00100"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Phenotype -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Phenotype">
+    <!-- http://pgxo.loria.fr/Phenotype -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Phenotype">
         <owl:equivalentClass rdf:resource="http://www.loria.fr/~coulet/sopharm/SOPHARM_70000"/>
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Phenotype"/>
     </owl:Class>
-    
 
 
-    <!-- http://www.loria.fr/pgxo/Variant -->
 
-    <owl:Class rdf:about="http://www.loria.fr/pgxo/Variant">
+    <!-- http://pgxo.loria.fr/Variant -->
+
+    <owl:Class rdf:about="http://pgxo.loria.fr/Variant">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#Variant"/>
-        <rdfs:subClassOf rdf:resource="http://www.loria.fr/pgxo/GenomicVariation"/>
+        <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/GenomicVariation"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/~coulet/sopharm/SOPHARM_00100 -->
 
     <owl:Class rdf:about="http://www.loria.fr/~coulet/sopharm/SOPHARM_00100"/>
-    
+
 
 
     <!-- http://www.loria.fr/~coulet/sopharm/SOPHARM_20000 -->
 
     <owl:Class rdf:about="http://www.loria.fr/~coulet/sopharm/SOPHARM_20000"/>
-    
+
 
 
     <!-- http://www.loria.fr/~coulet/sopharm/SOPHARM_30000 -->
@@ -188,49 +188,49 @@
     <owl:Class rdf:about="http://www.loria.fr/~coulet/sopharm/SOPHARM_30000">
         <owl:equivalentClass rdf:resource="http://www.stanford.edu/~coulet/phare.owl#GenomicVariation"/>
     </owl:Class>
-    
+
 
 
     <!-- http://www.loria.fr/~coulet/sopharm/SOPHARM_70000 -->
 
     <owl:Class rdf:about="http://www.loria.fr/~coulet/sopharm/SOPHARM_70000"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Disease -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#Disease"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Drug -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#Drug"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Gene -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#Gene"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#GenomicVariation -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#GenomicVariation"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Haplotype -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#Haplotype"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Phenotype -->
 
     <owl:Class rdf:about="http://www.stanford.edu/~coulet/phare.owl#Phenotype"/>
-    
+
 
 
     <!-- http://www.stanford.edu/~coulet/phare.owl#Variant -->
@@ -241,4 +241,3 @@
 
 
 <!-- Generated by the OWL API (version 4.2.6.20160910-2108) https://github.com/owlcs/owlapi -->
-
