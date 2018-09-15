@@ -229,65 +229,37 @@
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Drug"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/causes"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Phenotype"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Drug"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/causes"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Phenotype"/>
-                            </owl:Restriction>
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
-                            </owl:Restriction>
-                        </owl:intersectionOf>
-                    </owl:Class>
-                    <owl:Class>
-                        <owl:intersectionOf rdf:parseType="Collection">
-                            <owl:Restriction>
-                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/causes"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://pgxo.loria.fr/Phenotype"/>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://pgxo.loria.fr/Drug"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
                                                 <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Drug"/>
                                             </owl:Restriction>
-                                        </owl:intersectionOf>
+                                        </owl:unionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://pgxo.loria.fr/causes"/>
+                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Phenotype"/>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
                                 <owl:someValuesFrom>
                                     <owl:Class>
-                                        <owl:intersectionOf rdf:parseType="Collection">
-                                            <rdf:Description rdf:about="http://pgxo.loria.fr/Phenotype"/>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://pgxo.loria.fr/GeneticFactor"/>
                                             <owl:Restriction>
                                                 <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
                                                 <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
                                             </owl:Restriction>
-                                        </owl:intersectionOf>
+                                        </owl:unionOf>
                                     </owl:Class>
                                 </owl:someValuesFrom>
                             </owl:Restriction>
@@ -297,11 +269,31 @@
                         <owl:intersectionOf rdf:parseType="Collection">
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Drug"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://pgxo.loria.fr/Drug"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
+                                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/Drug"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
                             </owl:Restriction>
                             <owl:Restriction>
                                 <owl:onProperty rdf:resource="http://pgxo.loria.fr/isCausedBy"/>
-                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:unionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="http://pgxo.loria.fr/GeneticFactor"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/RO_0002502"/>
+                                                <owl:someValuesFrom rdf:resource="http://pgxo.loria.fr/GeneticFactor"/>
+                                            </owl:Restriction>
+                                        </owl:unionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
                             </owl:Restriction>
                         </owl:intersectionOf>
                     </owl:Class>
