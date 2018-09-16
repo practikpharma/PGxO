@@ -209,7 +209,7 @@
 
     <owl:Class rdf:about="http://pgxo.loria.fr/PharmacodynamicPhenotype">
         <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
-        <rdfs:label>Pharmacodynamic Phenotype</rdfs:label>
+        <rdfs:label>Pharmacodynamic phenotype</rdfs:label>
     </owl:Class>
 
 
@@ -309,7 +309,7 @@
 
     <owl:Class rdf:about="http://pgxo.loria.fr/PharmacokineticPhenotype">
         <rdfs:subClassOf rdf:resource="http://pgxo.loria.fr/Phenotype"/>
-        <rdfs:label>Pharmacokinetic Phenotype</rdfs:label>
+        <rdfs:label>Pharmacokinetic phenotype</rdfs:label>
     </owl:Class>
 
 
