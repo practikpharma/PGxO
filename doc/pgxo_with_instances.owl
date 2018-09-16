@@ -16,7 +16,7 @@
         <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl"/>
         <owl:imports rdf:resource="http://www.w3.org/ns/prov-o-20130430"/>
         <dc:creator>Pierre Monnin, Loria (CNRS, Inria Nancy-Grand Est, Université de Lorraine)</dc:creator>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Version 0.4</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.4</owl:versionInfo>
         <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
         <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
         <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
