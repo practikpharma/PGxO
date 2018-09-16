@@ -9,10 +9,11 @@ PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org
 Documentation is available in the ``doc/`` folder:
 
 * [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO main concepts and relations.
-* [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated version of PGxO.
-* [global-fig.pdf](doc/global-fig.pdf): Global figure presenting the instantiation of PGxO.
 * [mapp1.owl](doc/mapp1.owl): Mappings from PGxO to four ontologies related to PGx (SO-PHARM, PO, PHARE and Genomic CDS).
 * [mapp2.owl](doc/mapp2.owl): Mappings from PGxO to three large spectrum ontologies (MeSH, NCIt and SNOMED CT).
+* [MIRO.md](doc/MIRO.md): Minimum Information for the Reporting of an Ontology (MIRO) associated with PGxO.
+* [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated version of PGxO.
+* [global-fig.pdf](doc/global-fig.pdf): Global figure presenting the instantiation of PGxO.
 
 ## References
 
@@ -20,6 +21,8 @@ Documentation is available in the ``doc/`` folder:
 PGxO: A very lite ontology to reconcile pharmacogenomic knowledge units.
 In _Methods, tools & platforms for Personalized Medicine in the Big Data Era_.
 [Link](https://hal.inria.fr/hal-01593184/document)
+2. Monnin, P., Legrand, J., Husson, G., Ringot, P., Tchechmedjiev, A.,
+Jonquet, C., Napoli, A., & Coulet, A. (2018). PGxO and PGxLOD: a reconciliation of pharmacogenomic knowledge of various provenances, enabling further comparison. bioRxiv, 390971. [Link](https://doi.org/10.1101/390971)
 
 ## Acknowledgments
 
