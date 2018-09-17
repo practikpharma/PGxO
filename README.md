@@ -8,6 +8,7 @@ PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org
 
 Documentation is available in the ``doc/`` folder:
 
+* [pgxo.html](doc/pgxo.html): HTML documentation of PGxO
 * [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO main concepts and relations.
 * [mapp1.owl](doc/mapp1.owl): Mappings from PGxO to four ontologies related to PGx (SO-PHARM, PO, PHARE and Genomic CDS).
 * [mapp2.owl](doc/mapp2.owl): Mappings from PGxO to three large spectrum ontologies (MeSH, NCIt and SNOMED CT).
