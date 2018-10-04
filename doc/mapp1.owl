@@ -10,10 +10,12 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:pgxo="http://pgxo.loria.fr/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:PO="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#">
+     xmlns:PO="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://pgxo.loria.fr/mappings/">
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
         <rdfs:comment>mappings from PGxO to SO-PHARM, PO, PHARE and Genomic CDS.</rdfs:comment>
+        <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
     </owl:Ontology>
 
 

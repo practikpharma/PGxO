@@ -18,6 +18,7 @@
         <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
         <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
         <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
+        <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
     </owl:Ontology>
 
 

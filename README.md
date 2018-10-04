@@ -16,6 +16,10 @@ Documentation is available in the ``doc/`` folder:
 * [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated version of PGxO.
 * [global-fig.pdf](doc/global-fig.pdf): Global figure presenting the instantiation of PGxO.
 
+## License
+
+PGxO is under [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/).
+
 ## References
 
 1. Monnin, P., Jonquet, C., Legrand, J., Napoli, A., & Coulet, A. (2017, October).

@@ -7,7 +7,7 @@ For each guideline, we describe the value of the field to report.
 |-----------------------------|-------------|
 | A.1 Ontology name | PGxO, v0.4 |
 | A.2 Ontology owner | Adrien Coulet (https://members.loria.fr/ACoulet/) |
-| A.3 Ontology license | Open access (to be further determined) |
+| A.3 Ontology license | [Creative Commons BY NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) |
 | A.4 Ontology URL | http://pgxo.loria.fr/data/pgxo.owl |
 | A.5 Ontology repository | https://github.com/practikpharma/PGxO |
 | A.6 Methodological framework | Competency questions described in [1] and [2] |

@@ -10,10 +10,12 @@
      xmlns:MESH="http://purl.bioontology.org/ontology/MESH/"
      xmlns:pgxo="http://pgxo.loria.fr/"
      xmlns:SNOMEDCT="http://purl.bioontology.org/ontology/SNOMEDCT/"
-     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
     <owl:Ontology rdf:about="http://pgxo.loria.fr/mappings/">
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.1</owl:versionInfo>
         <rdfs:comment>mappings from PGxO to MeSH, NCIt and SNOMED CT.</rdfs:comment>
+        <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
     </owl:Ontology>
 
 
