@@ -9,12 +9,17 @@ PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org
 Documentation is available in the ``doc/`` folder:
 
 * [pgxo.html](doc/pgxo.html): HTML documentation of PGxO
-* [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO main concepts and relations.
-* [mapp1.owl](doc/mapp1.owl): Mappings from PGxO to four ontologies related to PGx (SO-PHARM, PO, PHARE and Genomic CDS).
-* [mapp2.owl](doc/mapp2.owl): Mappings from PGxO to three large spectrum ontologies (MeSH, NCIt and SNOMED CT).
+* [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO **main** concepts and relations.
 * [MIRO.md](doc/MIRO.md): Minimum Information for the Reporting of an Ontology (MIRO) associated with PGxO.
 * [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated version of PGxO.
 * [global-fig.pdf](doc/global-fig.pdf): Global figure presenting the instantiation of PGxO.
+
+## Mappings
+
+Mappings are available in the ``mappings/`` folder:
+
+* [mapp1.owl](mappings/mapp1.owl): Mappings from PGxO to four ontologies related to PGx (SO-PHARM, PO, PHARE and Genomic CDS).
+* [mapp2.owl](mappings/mapp2.owl): Mappings from PGxO to three large spectrum ontologies (MeSH, NCIt and SNOMED CT).
 
 ## License
 

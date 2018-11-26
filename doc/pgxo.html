@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="PGxO">
-		<title>PGxO</title>
-	</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="description" content="PGxO">
+        <title>PGxO</title>
+    </head>
 
     <body>
         <h1>PGxO</h1>
@@ -15,21 +15,93 @@
             The preferred prefix for this namespace is pgxo.
         </p>
 
-        <p>Content negotiation is supported for HTML and RDF/XML.</p>
+        <p>
+            Content negotiation is supported for HTML and RDF/XML.
+        </p>
 
-        <p>The OWL ontology file can be accessed directly from <a href="http://pgxo.loria.fr/data/pgxo.owl">http://pgxo.loria.fr/data/pgxo.owl</a>.</p>
+        <p>
+            The OWL ontology file can be accessed directly from <a href="http://pgxo.loria.fr/data/pgxo.owl">http://pgxo.loria.fr/data/pgxo.owl</a>.
+            This URL should be used to import the ontology in another service, such as Protégé.
+        </p>
 
         <h2>Index</h2>
 
         <h3 id="causes">causes</h3>
         <p>Object property</p>
         <p>URI: <a href="http://pgxo.loria.fr/causes">http://pgxo.loria.fr/causes</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
         <p>Inverse of: <a href="http://pgxo.loria.fr/isCausedBy">isCausedBy</a></p>
+
+        <h3 id="decreases">decreases</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/decreases">http://pgxo.loria.fr/decreases</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isDecreasedBy">isDecreasedBy</a></p>
+
+        <h3 id="decreasesChanceOf">decreasesChanceOf</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/decreasesChanceOf">http://pgxo.loria.fr/decreasesChanceOf</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/hasChanceDecreasedBy">hasChanceDecreasedBy</a></p>
 
         <h3 id="Disease">Disease</h3>
         <p>Class</p>
         <p>URI: <a href="http://pgxo.loria.fr/Disease">http://pgxo.loria.fr/Disease</a></p>
         <p>Subclass of: <a href="http://pgxo.loria.fr/Phenotype">Phenotype</a></p>
+
+        <h3 id="doesNotCause">doesNotCause</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotCause">http://pgxo.loria.fr/doesNotCause</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotCausedBy">isNotCausedBy</a></p>
+
+        <h3 id="doesNotDecrease">doesNotDecrease</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotDecrease">http://pgxo.loria.fr/doesNotDecrease</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotDecreasedBy">isNotDecreasedBy</a></p>
+
+        <h3 id="doesNotDecreaseChanceOf">doesNotDecreaseChanceOf</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotDecreaseChanceOf">http://pgxo.loria.fr/doesNotDecreaseChanceOf</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/hasNotChanceDecreasedBy">hasNotChanceDecreasedBy</a></p>
+
+        <h3 id="doesNotIncrease">doesNotIncrease</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotIncrease">http://pgxo.loria.fr/doesNotIncrease</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotIncreasedBy">isNotIncreasedBy</a></p>
+
+        <h3 id="doesNotIncreaseChanceOf">doesNotIncreaseChanceOf</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotIncreaseChanceOf">http://pgxo.loria.fr/doesNotIncreaseChanceOf</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/hasNotChanceIncreasedBy">hasNotChanceIncreasedBy</a></p>
+
+        <h3 id="doesNotInfluence">doesNotInfluence</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotInfluence">http://pgxo.loria.fr/doesNotInfluence</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+
+        <h3 id="doesNotMetabolize">doesNotMetabolize</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotMetabolize">http://pgxo.loria.fr/doesNotMetabolize</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotMetabolizedBy">isNotMetabolizedBy</a></p>
+
+        <h3 id="doesNotTransport">doesNotTransport</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotTransport">http://pgxo.loria.fr/doesNotTransport</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotTransportedBy">isNotTransportedBy</a></p>
+
+        <h3 id="doesNotTreat">doesNotTreat</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/doesNotTreat">http://pgxo.loria.fr/doesNotTreat</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isNotTreatedBy">isNotTreatedBy</a></p>
 
         <h3 id="Drug">Drug</h3>
         <p>Class</p>
@@ -40,24 +112,161 @@
         <p>URI: <a href="http://pgxo.loria.fr/Gene">http://pgxo.loria.fr/Gene</a></p>
         <p>Subclass of: <a href="http://pgxo.loria.fr/GeneticFactor">Genetic factor</a></p>
 
+        <h3 id="GeneticFactor">Genetic factor</h3>
+        <p>Class</p>
+        <p>URI: <a href="http://pgxo.loria.fr/GeneticFactor">http://pgxo.loria.fr/GeneticFactor</a></p>
+
         <h3 id="GenomicVariation">Genomic variation</h3>
         <p>Class</p>
         <p>URI: <a href="http://pgxo.loria.fr/GenomicVariation">http://pgxo.loria.fr/GenomicVariation</a></p>
         <p>Subclass of: <a href="http://pgxo.loria.fr/GeneticFactor">Genetic factor</a></p>
-
-        <h3 id="GeneticFactor">Genetic factor</h3>
-        <p>Class</p>
-        <p>URI: <a href="http://pgxo.loria.fr/GeneticFactor">http://pgxo.loria.fr/GeneticFactor</a></p>
 
         <h3 id="Haplotype">Haplotype</h3>
         <p>Class</p>
         <p>URI: <a href="http://pgxo.loria.fr/Haplotype">http://pgxo.loria.fr/Haplotype</a></p>
         <p>Subclass of: <a href="http://pgxo.loria.fr/GenomicVariation">Genomic variation</a></p>
 
+        <h3 id="hasChanceDecreasedBy">hasChanceDecreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/hasChanceDecreasedBy">http://pgxo.loria.fr/hasChanceDecreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/decreasesChanceOf">decreasesChanceOf</a></p>
+
+        <h3 id="hasChanceIncreasedBy">hasChanceIncreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/hasChanceIncreasedBy">http://pgxo.loria.fr/hasChanceIncreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/increasesChanceOf">increasesChanceOf</a></p>
+
+        <h3 id="hasNotChanceDecreasedBy">hasNotChanceDecreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/hasNotChanceDecreasedBy">http://pgxo.loria.fr/hasNotChanceDecreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotDecreaseChanceOf">doesNotDecreaseChanceOf</a></p>
+
+        <h3 id="hasNotChanceIncreasedBy">hasNotChanceIncreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/hasNotChanceIncreasedBy">http://pgxo.loria.fr/hasNotChanceIncreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotIncreaseChanceOf">doesNotIncreaseChanceOf</a></p>
+
+        <h3 id="increases">increases</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/increases">http://pgxo.loria.fr/increases</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isIncreasedBy">isIncreasedBy</a></p>
+
+        <h3 id="increasesChanceOf">increasesChanceOf</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/increasesChanceOf">http://pgxo.loria.fr/increasesChanceOf</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/hasChanceIncreasedBy">hasChanceIncreasedBy</a></p>
+
+        <h3 id="influences">influences</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/influences">http://pgxo.loria.fr/influences</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+
+        <h3 id="isAssociatedWith">isAssociatedWith</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isAssociatedWith">http://pgxo.loria.fr/isAssociatedWith</a></p>
+        <p>Symmetric property</p>
+
         <h3 id="isCausedBy">isCausedBy</h3>
         <p>Object property</p>
         <p>URI: <a href="http://pgxo.loria.fr/isCausedBy">http://pgxo.loria.fr/isCausedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
         <p>Inverse of: <a href="http://pgxo.loria.fr/causes">causes</a></p>
+
+        <h3 id="isDecreasedBy">isDecreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isDecreasedBy">http://pgxo.loria.fr/isDecreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/decreases">decreases</a></p>
+
+        <h3 id="isIncreasedBy">isIncreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isIncreasedBy">http://pgxo.loria.fr/isIncreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/increases">increases</a></p>
+
+        <h3 id="isInfluencedBy">isInfluencedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isInfluencedBy">http://pgxo.loria.fr/isInfluencedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+
+        <h3 id="isMetabolizedBy">isMetabolizedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isMetabolizedBy">http://pgxo.loria.fr/isMetabolizedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isInfluencedBy">isInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/metabolizes">metabolizes</a></p>
+
+        <h3 id="isNotAssociatedWith">isNotAssociatedWith</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotAssociatedWith">http://pgxo.loria.fr/isNotAssociatedWith</a></p>
+        <p>Symmetric property</p>
+
+        <h3 id="isNotCausedBy">isNotCausedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotCausedBy">http://pgxo.loria.fr/isNotCausedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotCause">doesNotCause</a></p>
+
+        <h3 id="isNotDecreasedBy">isNotDecreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotDecreasedBy">http://pgxo.loria.fr/isNotDecreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotDecrease">doesNotDecrease</a></p>
+
+        <h3 id="isNotIncreasedBy">isNotIncreasedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotIncreasedBy">http://pgxo.loria.fr/isNotIncreasedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotIncrease">doesNotIncrease</a></p>
+
+        <h3 id="isNotInfluencedBy">isNotInfluencedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotInfluencedBy">http://pgxo.loria.fr/isNotInfluencedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotInfluence">doesNotInfluence</a></p>
+
+        <h3 id="isNotMetabolizedBy">isNotMetabolizedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotMetabolizedBy">http://pgxo.loria.fr/isNotMetabolizedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotInfluencedBy">isNotInfluencedBy</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotMetabolize">doesNotMetabolize</a></p>
+
+        <h3 id="isNotTransportedBy">isNotTransportedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotTransportedBy">http://pgxo.loria.fr/isNotTransportedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotTransport">doesNotTransport</a></p>
+
+        <h3 id="isNotTreatedBy">isNotTreatedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isNotTreatedBy">http://pgxo.loria.fr/isNotTreatedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isNotAssociatedWith">isNotAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/doesNotTreat">doesNotTreat</a></p>
+
+        <h3 id="isTransportedBy">isTransportedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isTransportedBy">http://pgxo.loria.fr/isTransportedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/transports">transports</a></p>
+
+        <h3 id="isTreatedBy">isTreatedBy</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/isTreatedBy">http://pgxo.loria.fr/isTreatedBy</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/treats">treats</a></p>
+
+        <h3 id="metabolizes">metabolizes</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/metabolizes">http://pgxo.loria.fr/metabolizes</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/influences">influences</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isMetabolizedBy">isMetabolizedBy</a></p>
 
         <h3 id="PharmacodynamicPhenotype">Pharmacodynamic phenotype</h3>
         <p>Class</p>
@@ -89,6 +298,18 @@
         <h3 id="qualifiedVariation">qualifiedVariation</h3>
         <p>Object property</p>
         <p>URI: <a href="http://pgxo.loria.fr/qualifiedVariation">http://pgxo.loria.fr/qualifiedVariation</a></p>
+
+        <h3 id="transports">transports</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/transports">http://pgxo.loria.fr/transports</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isTransportedBy">isTransportedBy</a></p>
+
+        <h3 id="treats">treats</h3>
+        <p>Object property</p>
+        <p>URI: <a href="http://pgxo.loria.fr/treats">http://pgxo.loria.fr/treats</a></p>
+        <p>Subproperty of: <a href="http://pgxo.loria.fr/isAssociatedWith">isAssociatedWith</a></p>
+        <p>Inverse of: <a href="http://pgxo.loria.fr/isTreatedBy">isTreatedBy</a></p>
 
         <h3 id="Variant">Variant</h3>
         <p>Class</p>
