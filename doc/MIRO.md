@@ -20,9 +20,9 @@ For each guideline, we describe the value of the field to report.
 | D.1 Knowledge acquisition methodology | Described in [1] and [2] |
 | D.2 Source knowledge location | Described in [1] and [2] |
 | D.3 Content selection | Described in [1] and [2] |
-| E.1 Knowledge Representation language | OWL 2 (OWL-XML syntax), Description Logics ALCHI(D)
+| E.1 Knowledge Representation language | OWL 2 (OWL-XML syntax), Description Logics ALHI(D)
 | E.2 Development environment | Protégé (https://protege.stanford.edu) |
-| E.3 Ontology metrics | 15 classes, 45 properties (44 object, 1 data), 150 axioms, 24KB |
+| E.3 Ontology metrics | 15 classes, 45 properties (44 object, 1 data), 149 axioms, 19KB |
 | E.4 Incorporation of other ontologies | No ontologies are imported. OBO Relations Ontology, DUL and PROV-O are used. Mappings to NCIt, MeSH, SNOMED-CT, SO-Pharm, PO, PHARE and Genomic CDS |
 | E.5 Entity naming convention | Base URI: http://pgxo.loria.fr/ |
 | E.6 Identifier generation policy | Append English rdfs:label to base URI |
