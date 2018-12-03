@@ -157,7 +157,7 @@
     <!-- http://pgxo.loria.fr/doesNotTransport -->
 
     <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/doesNotTransport">
-        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://pgxo.loria.fr/isNotTransportedBy"/>
     </owl:ObjectProperty>
     
@@ -331,7 +331,7 @@
     <!-- http://pgxo.loria.fr/isNotTransportedBy -->
 
     <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isNotTransportedBy">
-        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isNotInfluencedBy"/>
     </owl:ObjectProperty>
     
 
@@ -347,7 +347,7 @@
     <!-- http://pgxo.loria.fr/isTransportedBy -->
 
     <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/isTransportedBy">
-        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isInfluencedBy"/>
         <owl:inverseOf rdf:resource="http://pgxo.loria.fr/transports"/>
     </owl:ObjectProperty>
     
@@ -385,7 +385,7 @@
     <!-- http://pgxo.loria.fr/transports -->
 
     <owl:ObjectProperty rdf:about="http://pgxo.loria.fr/transports">
-        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/isAssociatedWith"/>
+        <rdfs:subPropertyOf rdf:resource="http://pgxo.loria.fr/influences"/>
     </owl:ObjectProperty>
     
 
