@@ -47,7 +47,10 @@ PGxO: A very lite ontology to reconcile pharmacogenomic knowledge units.
 In _Methods, tools & platforms for Personalized Medicine in the Big Data Era_.
 [Link](https://hal.inria.fr/hal-01593184/document)
 2. Monnin, P., Legrand, J., Husson, G., Ringot, P., Tchechmedjiev, A.,
-Jonquet, C., Napoli, A., & Coulet, A. (2018). PGxO and PGxLOD: a reconciliation of pharmacogenomic knowledge of various provenances, enabling further comparison. bioRxiv, 390971. [Link](https://doi.org/10.1101/390971)
+Jonquet, C., Napoli, A., & Coulet, A.
+PGxO and PGxLOD: a reconciliation of pharmacogenomic knowledge of various provenances, 
+enabling further comparison. BMC Bioinformatics 20-S(4): 139:1-139:16 (2019). 
+[Link](https://doi.org/10.1186/s12859-019-2693-9)
 3. Matentzoglu, N., Malone, J., Mungall, C., Stevens, R.: MIRO: guidelines for
 minimum information for the reporting of an ontology. J. Biomedical Semantics
 9(1), 6–1613 (2018). doi:10.1186/s13326-017-0172-7
