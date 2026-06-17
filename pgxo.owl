@@ -20,7 +20,7 @@
 - Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx</rdfs:comment>
         <rdfs:comment xml:lang="en">PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
         <rdfs:label xml:lang="en">PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</owl:versionInfo>
+        <owl:versionInfo>0.6</owl:versionInfo>
     </owl:Ontology>
     
 
