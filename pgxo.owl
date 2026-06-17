@@ -3,7 +3,6 @@
      xml:base="http://ns.inria.fr/pgxo/"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
      xmlns:ro="http://purl.obolibrary.org/obo/"
-     xmlns:dul="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
@@ -12,17 +11,16 @@
      xmlns:prov="http://www.w3.org/ns/prov#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://ns.inria.fr/pgxo/">
-        <dc:creator>Adrien Coulet, Loria - Inria, Université de Lorraine</dc:creator>
-        <dc:creator>Clément Jonquet, LIRMM, Université de Montpellier</dc:creator>
-        <dc:creator>Pierre Monnin, Loria (CNRS, Inria Nancy-Grand Est, Université de Lorraine)</dc:creator>
+        <dc:creator>Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)</dc:creator>
+        <dc:creator>Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)</dc:creator>
+        <dc:creator>Pierre Monnin (Université Côte d&apos;Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)</dc:creator>
         <dc:license>https://creativecommons.org/licenses/by-nc/4.0/</dc:license>
-        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Change pgxo:causes to a set of potential relationships
-
-- more granularity added
-- add negative relationships (not semantically defined) e.g. isNotAssociatedWith (note that isAssociatedWith is not defined as disjoint with isNotAssociatedWith whereas it could be)</rdfs:comment>
-        <rdfs:comment>PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
-        <rdfs:label>PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0.5</owl:versionInfo>
+        <rdfs:comment xml:lang="en">- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/
+- Remove usage of DUL
+- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx</rdfs:comment>
+        <rdfs:comment xml:lang="en">PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</rdfs:comment>
+        <rdfs:label xml:lang="en">PGxO: a lite Pharmacogenomic Ontology</rdfs:label>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.6</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -41,6 +39,12 @@
     <!-- http://purl.org/dc/elements/1.1/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/license"/>
     
 
 
@@ -414,16 +418,6 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality -->
-
-    <owl:ObjectProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasQuality">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
-        <rdfs:range rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality"/>
-        <rdfs:label xml:lang="en">has quality</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
@@ -435,11 +429,11 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue -->
+    <!-- http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence -->
 
-    <owl:DatatypeProperty rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasDataValue">
-        <rdfs:domain rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
-        <rdfs:label xml:lang="en">has data value</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
     </owl:DatatypeProperty>
     
 
@@ -551,37 +545,12 @@
     
 
 
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity">
-        <rdfs:label xml:lang="en">Entity</rdfs:label>
-    </owl:Class>
-    
-
-
-    <!-- http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality -->
-
-    <owl:Class rdf:about="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
-        <rdfs:label xml:lang="en">Quality</rdfs:label>
-    </owl:Class>
-    
-
-
     <!-- http://www.w3.org/ns/prov#Entity -->
 
     <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity"/>
-    
-
-
-    <!-- http://www.w3.org/ns/prov#Generation -->
-
-    <owl:Class rdf:about="http://www.w3.org/ns/prov#Generation">
-        <rdfs:subClassOf rdf:resource="http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Entity"/>
-    </owl:Class>
 </rdf:RDF>
 
 
 
-<!-- Generated by the OWL API (version 4.5.6.2018-09-06T00:27:41Z) https://github.com/owlcs/owlapi -->
+<!-- Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi -->
 
