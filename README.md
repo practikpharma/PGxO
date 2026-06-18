@@ -15,8 +15,8 @@ Documentation is available in the ``doc/`` folder:
 * [pgxo.html](doc/pgxo.html): HTML documentation of PGxO
 * [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO **main** concepts and relations.
 * [MIRO.md](doc/MIRO.md): Minimum Information for the Reporting of an Ontology (MIRO) associated with PGxO.
-* [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated version of PGxO.
-* [global-fig.pdf](doc/global-fig.pdf): Global figure presenting the instantiation of PGxO.
+* [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated example of PGxO.
+* [pgxo_with_instances_figure.pdf](doc/pgxo_with_instances_figure.pdf): Global figure presenting the instantiated example of PGxO.
 
 ## Mappings
 
