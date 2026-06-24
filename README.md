@@ -1,8 +1,8 @@
-# PGxO
+# [PGxO](http://ns.inria.fr/pgxo/)
 
 A lightweight and simple ontology to reconcile and trace knowledge in pharmacogenomics (PGx).
 
-PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org/ontologies/PGXO).
+PGxO is also available on http://ns.inria.fr/pgxo/ and on the [NCBO BioPortal](https://bioportal.bioontology.org/ontologies/PGXO).
 
 A full description of the motivation, implementation and instantiation of PGxO is available in [2].
 
