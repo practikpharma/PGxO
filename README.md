@@ -12,7 +12,7 @@ When citing PGxO, please use [2].
 
 Documentation is available in the ``doc/`` folder:
 
-* [pgxo.html](doc/pgxo.html): HTML documentation of PGxO
+* [widoco/doc/index.html](doc/widoco/doc/index.html): HTML documentation of PGxO
 * [pgxo-overview.pdf](doc/pgxo-overview.pdf): Figure presenting PGxO **main** concepts and relations.
 * [MIRO.md](doc/MIRO.md): Minimum Information for the Reporting of an Ontology (MIRO) associated with PGxO.
 * [pgxo_with_instances.owl](doc/pgxo_with_instances.owl): An instantiated example of PGxO. Note that the instanciation used in PGxLOD contains additional metadata (e.g., entity spans for text extraction, ClinPGx IDs are associated with PMIDs, different namespaces and naming conventions)
