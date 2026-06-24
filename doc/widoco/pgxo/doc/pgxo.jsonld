@@ -1,0 +1,439 @@
+[ {
+  "@id" : "http://ns.inria.fr/pgxo/",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
+  "http://purl.org/dc/elements/1.1/creator" : [ {
+    "@value" : "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)"
+  }, {
+    "@value" : "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)"
+  }, {
+    "@value" : "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)"
+  } ],
+  "http://purl.org/dc/elements/1.1/license" : [ {
+    "@value" : "https://creativecommons.org/licenses/by-nc/4.0/"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
+    "@language" : "en",
+    "@value" : "- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/\n- Remove usage of DUL\n- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"
+  }, {
+    "@language" : "en",
+    "@value" : "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "PGxO: a lite Pharmacogenomic Ontology"
+  } ],
+  "http://www.w3.org/2002/07/owl#versionInfo" : [ {
+    "@value" : "0.6"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Disease",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Disease"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/Phenotype"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Drug",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Drug"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Gene",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Gene"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/GeneticFactor"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/GeneticFactor",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Genetic factor"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/GenomicVariation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Genomic variation"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/GeneticFactor"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Haplotype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Haplotype"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/GenomicVariation"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/PharmacodynamicPhenotype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Pharmacodynamic phenotype"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/Phenotype"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Pharmacogenomic relationship"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://www.w3.org/ns/prov#Entity"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/PharmacokineticPhenotype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Pharmacokinetic phenotype"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/Phenotype"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Phenotype",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Phenotype"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/Variant",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@value" : "Variant"
+  } ],
+  "http://www.w3.org/2000/01/rdf-schema#subClassOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/GenomicVariation"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/causes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isCausedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#DatatypeProperty", "http://www.w3.org/2002/07/owl#FunctionalProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#domain" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/PharmacogenomicRelationship"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/decreases",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isDecreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/decreasesChanceOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/hasChanceDecreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotCause",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotCausedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotDecrease",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotDecreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotIncrease",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotIncreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotAssociatedWith"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotMetabolize",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotMetabolizedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotTransport",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/doesNotInfluence"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotTransportedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/doesNotTreat",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotAssociatedWith"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotTreatedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/hasChanceDecreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/hasChanceIncreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/increasesChanceOf"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/increases",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isIncreasedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/increasesChanceOf",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/influences",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isAssociatedWith"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isAssociatedWith",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#SymmetricProperty" ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isCausedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isDecreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isIncreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isAssociatedWith"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isMetabolizedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/metabolizes"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotAssociatedWith",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty", "http://www.w3.org/2002/07/owl#SymmetricProperty" ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotCausedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotDecreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotIncreasedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotAssociatedWith"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotMetabolizedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotTransportedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotInfluencedBy"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isNotTreatedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isNotAssociatedWith"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isTransportedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isInfluencedBy"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/transports"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/isTreatedBy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isAssociatedWith"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/treats"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/metabolizes",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/qualifiedProxy",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/qualifiedVariation",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/transports",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/influences"
+  } ]
+}, {
+  "@id" : "http://ns.inria.fr/pgxo/treats",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#subPropertyOf" : [ {
+    "@id" : "http://ns.inria.fr/pgxo/isAssociatedWith"
+  } ]
+}, {
+  "@id" : "http://purl.obolibrary.org/obo/BFO_0000050",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "part of"
+  } ],
+  "http://www.w3.org/2002/07/owl#inverseOf" : [ {
+    "@id" : "http://purl.obolibrary.org/obo/BFO_0000051"
+  } ]
+}, {
+  "@id" : "http://purl.obolibrary.org/obo/BFO_0000051",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "has part"
+  } ]
+}, {
+  "@id" : "http://purl.obolibrary.org/obo/RO_0002502",
+  "@type" : [ "http://www.w3.org/2002/07/owl#ObjectProperty" ],
+  "http://www.w3.org/2000/01/rdf-schema#label" : [ {
+    "@language" : "en",
+    "@value" : "depends on"
+  } ]
+}, {
+  "@id" : "http://purl.org/dc/elements/1.1/creator",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://purl.org/dc/elements/1.1/license",
+  "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
+}, {
+  "@id" : "http://www.w3.org/ns/prov#Entity",
+  "@type" : [ "http://www.w3.org/2002/07/owl#Class" ]
+} ]

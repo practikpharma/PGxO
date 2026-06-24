@@ -1,0 +1,301 @@
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by-nc/4.0/" .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/\n- Remove usage of DUL\n- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"@en .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#label> "PGxO: a lite Pharmacogenomic Ontology"@en .
+<http://ns.inria.fr/pgxo/> <http://www.w3.org/2002/07/owl#versionInfo> "0.6" .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://ns.inria.fr/pgxo/causes
+<http://ns.inria.fr/pgxo/causes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/causes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+<http://ns.inria.fr/pgxo/causes> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isCausedBy> .
+# 
+# http://ns.inria.fr/pgxo/decreases
+<http://ns.inria.fr/pgxo/decreases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/decreases> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+<http://ns.inria.fr/pgxo/decreases> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isDecreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/decreasesChanceOf
+<http://ns.inria.fr/pgxo/decreasesChanceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/decreasesChanceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+<http://ns.inria.fr/pgxo/decreasesChanceOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/hasChanceDecreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotCause
+<http://ns.inria.fr/pgxo/doesNotCause> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotCause> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotCause> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotCausedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotDecrease
+<http://ns.inria.fr/pgxo/doesNotDecrease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotDecrease> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotDecrease> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotDecreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf
+<http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotIncrease
+<http://ns.inria.fr/pgxo/doesNotIncrease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotIncrease> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotIncrease> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotIncreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf
+<http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotInfluence
+<http://ns.inria.fr/pgxo/doesNotInfluence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotInfluence> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotAssociatedWith> .
+<http://ns.inria.fr/pgxo/doesNotInfluence> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotMetabolize
+<http://ns.inria.fr/pgxo/doesNotMetabolize> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotMetabolize> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotMetabolize> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotMetabolizedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotTransport
+<http://ns.inria.fr/pgxo/doesNotTransport> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotTransport> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/doesNotInfluence> .
+<http://ns.inria.fr/pgxo/doesNotTransport> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotTransportedBy> .
+# 
+# http://ns.inria.fr/pgxo/doesNotTreat
+<http://ns.inria.fr/pgxo/doesNotTreat> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/doesNotTreat> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotAssociatedWith> .
+<http://ns.inria.fr/pgxo/doesNotTreat> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isNotTreatedBy> .
+# 
+# http://ns.inria.fr/pgxo/hasChanceDecreasedBy
+<http://ns.inria.fr/pgxo/hasChanceDecreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/hasChanceDecreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/hasChanceIncreasedBy
+<http://ns.inria.fr/pgxo/hasChanceIncreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/hasChanceIncreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+<http://ns.inria.fr/pgxo/hasChanceIncreasedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/increasesChanceOf> .
+# 
+# http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy
+<http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy
+<http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/increases
+<http://ns.inria.fr/pgxo/increases> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/increases> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+<http://ns.inria.fr/pgxo/increases> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isIncreasedBy> .
+# 
+# http://ns.inria.fr/pgxo/increasesChanceOf
+<http://ns.inria.fr/pgxo/increasesChanceOf> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/increasesChanceOf> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+# 
+# http://ns.inria.fr/pgxo/influences
+<http://ns.inria.fr/pgxo/influences> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/influences> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isAssociatedWith> .
+<http://ns.inria.fr/pgxo/influences> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isAssociatedWith
+<http://ns.inria.fr/pgxo/isAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+# 
+# http://ns.inria.fr/pgxo/isCausedBy
+<http://ns.inria.fr/pgxo/isCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isCausedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isDecreasedBy
+<http://ns.inria.fr/pgxo/isDecreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isDecreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isIncreasedBy
+<http://ns.inria.fr/pgxo/isIncreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isIncreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isInfluencedBy
+<http://ns.inria.fr/pgxo/isInfluencedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isAssociatedWith> .
+# 
+# http://ns.inria.fr/pgxo/isMetabolizedBy
+<http://ns.inria.fr/pgxo/isMetabolizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isMetabolizedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+<http://ns.inria.fr/pgxo/isMetabolizedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/metabolizes> .
+# 
+# http://ns.inria.fr/pgxo/isNotAssociatedWith
+<http://ns.inria.fr/pgxo/isNotAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#SymmetricProperty> .
+# 
+# http://ns.inria.fr/pgxo/isNotCausedBy
+<http://ns.inria.fr/pgxo/isNotCausedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotCausedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isNotDecreasedBy
+<http://ns.inria.fr/pgxo/isNotDecreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotDecreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isNotIncreasedBy
+<http://ns.inria.fr/pgxo/isNotIncreasedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotIncreasedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isNotInfluencedBy
+<http://ns.inria.fr/pgxo/isNotInfluencedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotInfluencedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotAssociatedWith> .
+# 
+# http://ns.inria.fr/pgxo/isNotMetabolizedBy
+<http://ns.inria.fr/pgxo/isNotMetabolizedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotMetabolizedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isNotTransportedBy
+<http://ns.inria.fr/pgxo/isNotTransportedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotTransportedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotInfluencedBy> .
+# 
+# http://ns.inria.fr/pgxo/isNotTreatedBy
+<http://ns.inria.fr/pgxo/isNotTreatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isNotTreatedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isNotAssociatedWith> .
+# 
+# http://ns.inria.fr/pgxo/isTransportedBy
+<http://ns.inria.fr/pgxo/isTransportedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isTransportedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isInfluencedBy> .
+<http://ns.inria.fr/pgxo/isTransportedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/transports> .
+# 
+# http://ns.inria.fr/pgxo/isTreatedBy
+<http://ns.inria.fr/pgxo/isTreatedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/isTreatedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isAssociatedWith> .
+<http://ns.inria.fr/pgxo/isTreatedBy> <http://www.w3.org/2002/07/owl#inverseOf> <http://ns.inria.fr/pgxo/treats> .
+# 
+# http://ns.inria.fr/pgxo/metabolizes
+<http://ns.inria.fr/pgxo/metabolizes> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/metabolizes> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+# 
+# http://ns.inria.fr/pgxo/qualifiedProxy
+<http://ns.inria.fr/pgxo/qualifiedProxy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ns.inria.fr/pgxo/qualifiedVariation
+<http://ns.inria.fr/pgxo/qualifiedVariation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ns.inria.fr/pgxo/transports
+<http://ns.inria.fr/pgxo/transports> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/transports> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/influences> .
+# 
+# http://ns.inria.fr/pgxo/treats
+<http://ns.inria.fr/pgxo/treats> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://ns.inria.fr/pgxo/treats> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ns.inria.fr/pgxo/isAssociatedWith> .
+# 
+# http://purl.obolibrary.org/obo/BFO_0000050
+<http://purl.obolibrary.org/obo/BFO_0000050> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.obolibrary.org/obo/BFO_0000050> <http://www.w3.org/2002/07/owl#inverseOf> <http://purl.obolibrary.org/obo/BFO_0000051> .
+<http://purl.obolibrary.org/obo/BFO_0000050> <http://www.w3.org/2000/01/rdf-schema#label> "part of"@en .
+# 
+# http://purl.obolibrary.org/obo/BFO_0000051
+<http://purl.obolibrary.org/obo/BFO_0000051> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.obolibrary.org/obo/BFO_0000051> <http://www.w3.org/2000/01/rdf-schema#label> "has part"@en .
+# 
+# http://purl.obolibrary.org/obo/RO_0002502
+<http://purl.obolibrary.org/obo/RO_0002502> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://purl.obolibrary.org/obo/RO_0002502> <http://www.w3.org/2000/01/rdf-schema#label> "depends on"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence
+<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#FunctionalProperty> .
+<http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence> <http://www.w3.org/2000/01/rdf-schema#domain> <http://ns.inria.fr/pgxo/PharmacogenomicRelationship> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://ns.inria.fr/pgxo/Disease
+<http://ns.inria.fr/pgxo/Disease> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Disease> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/Phenotype> .
+<http://ns.inria.fr/pgxo/Disease> <http://www.w3.org/2000/01/rdf-schema#label> "Disease" .
+# 
+# http://ns.inria.fr/pgxo/Drug
+<http://ns.inria.fr/pgxo/Drug> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Drug> <http://www.w3.org/2000/01/rdf-schema#label> "Drug" .
+# 
+# http://ns.inria.fr/pgxo/Gene
+<http://ns.inria.fr/pgxo/Gene> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Gene> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/GeneticFactor> .
+<http://ns.inria.fr/pgxo/Gene> <http://www.w3.org/2000/01/rdf-schema#label> "Gene" .
+# 
+# http://ns.inria.fr/pgxo/GeneticFactor
+<http://ns.inria.fr/pgxo/GeneticFactor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/GeneticFactor> <http://www.w3.org/2000/01/rdf-schema#label> "Genetic factor" .
+# 
+# http://ns.inria.fr/pgxo/GenomicVariation
+<http://ns.inria.fr/pgxo/GenomicVariation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/GenomicVariation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/GeneticFactor> .
+<http://ns.inria.fr/pgxo/GenomicVariation> <http://www.w3.org/2000/01/rdf-schema#label> "Genomic variation" .
+# 
+# http://ns.inria.fr/pgxo/Haplotype
+<http://ns.inria.fr/pgxo/Haplotype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Haplotype> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/GenomicVariation> .
+<http://ns.inria.fr/pgxo/Haplotype> <http://www.w3.org/2000/01/rdf-schema#label> "Haplotype" .
+# 
+# http://ns.inria.fr/pgxo/PharmacodynamicPhenotype
+<http://ns.inria.fr/pgxo/PharmacodynamicPhenotype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/PharmacodynamicPhenotype> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/Phenotype> .
+<http://ns.inria.fr/pgxo/PharmacodynamicPhenotype> <http://www.w3.org/2000/01/rdf-schema#label> "Pharmacodynamic phenotype" .
+# 
+# http://ns.inria.fr/pgxo/PharmacogenomicRelationship
+<http://ns.inria.fr/pgxo/PharmacogenomicRelationship> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/PharmacogenomicRelationship> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Entity> .
+<http://ns.inria.fr/pgxo/PharmacogenomicRelationship> <http://www.w3.org/2000/01/rdf-schema#label> "Pharmacogenomic relationship" .
+# 
+# http://ns.inria.fr/pgxo/PharmacokineticPhenotype
+<http://ns.inria.fr/pgxo/PharmacokineticPhenotype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/PharmacokineticPhenotype> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/Phenotype> .
+<http://ns.inria.fr/pgxo/PharmacokineticPhenotype> <http://www.w3.org/2000/01/rdf-schema#label> "Pharmacokinetic phenotype" .
+# 
+# http://ns.inria.fr/pgxo/Phenotype
+<http://ns.inria.fr/pgxo/Phenotype> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Phenotype> <http://www.w3.org/2000/01/rdf-schema#label> "Phenotype" .
+# 
+# http://ns.inria.fr/pgxo/Variant
+<http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ns.inria.fr/pgxo/GenomicVariation> .
+<http://ns.inria.fr/pgxo/Variant> <http://www.w3.org/2000/01/rdf-schema#label> "Variant" .
+# 
+# http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

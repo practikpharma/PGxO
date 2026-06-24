@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>PGxO: a lite Pharmacogenomic Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">
+{
+   "@context":"https://schema.org",
+   "@type":"TechArticle",
+   "url":"http://ns.inria.fr/pgxo/",
+   "name":"PGxO: a Lite Pharmacogenomic Ontology",
+   "headline":"Documentation for the PGxO ontology",
+   "description":"PGxO is a lightweight and simple ontology to reconcile and trace knowledge in pharmacogenomics (PGx)",
+   "version":"0.6",
+   "license":{
+      "@id":"https://creativecommons.org/licenses/by-nc/4.0/"
+   },
+   "author":[
+      {
+         "@type":"Person",
+         "name":"Adrien Coulet",
+         "affiliation": {
+            "@type": "Organization",
+            "name": "Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France"
+         }
+      },
+      {
+         "@type":"Person",
+         "name":"Clément Jonquet",
+         "affiliation": {
+            "@type": "Organization",
+            "name": "MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France"
+         }
+      },
+      {
+         "@type":"Person",
+         "name":"Pierre Monnin",
+         "affiliation": {
+            "@type": "Organization",
+            "name": "Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France"
+         }
+      }
+   ],
+   "mainEntity": {
+      "@id": "http://ns.inria.fr/pgxo/"
+   }
+}
+</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index.html"><b>en</b></a> </div>
+<h1>PGxO: a lite Pharmacogenomic Ontology</h1>
+
+
+<dl>
+<dt>Latest version:</dt>
+<dd><a href="http://ns.inria.fr/pgxo/">http://ns.inria.fr/pgxo/</a></dd>
+<dt>Revision:</dt>
+<dd>0.6</dd>
+<dt>Authors:</dt>
+<dd><a href="https://heka.gitlabpages.inria.fr/team/members/coulet.html">Adrien Coulet</a> (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)</dd><dd><a href="https://jonquet.mystrikingly.com/">Clément Jonquet</a> (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)</dd><dd><a href="https://pmonnin.github.io/">Pierre Monnin</a> (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)</dd>
+
+<dt>Download serialization:</dt><dd><span><a href="pgxo.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="pgxo.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="pgxo.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="pgxo.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank"><img src="https://img.shields.io/badge/License-Creative%20Commons%20BY%20NC%204.0-blue.svg" alt="https://creativecommons.org/licenses/by-nc/4.0/" /></a>
+</dd><!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --><dt>Cite as:</dt>
+<dd>Monnin, P., Legrand, J., Husson, G., Ringot, P., Tchechmedjiev, A., Jonquet, C., Napoli, A., & Coulet, A. PGxO and PGxLOD: a reconciliation of pharmacogenomic knowledge of various provenances, enabling further comparison. BMC Bioinformatics 20-S(4): 139:1-139:16 (2019).</dd>
+<dt>DOI:</dt>
+<dd><a href="http://dx.doi.org/10.1186/s12859-019-2693-9">10.1186/s12859-019-2693-9</a></dd>
+</dl>
+
+<hr/>
+</div>
+<div class="status">
+<div>
+<span>PGxO v0.6 documentation</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+This document describes the PGxO ontology, under the namespace http://ns.inria.fr/pgxo/. The preferred prefix for this namespace is pgxo.</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+PGxO is a lightweight and simple ontology to reconcile and trace knowledge in pharmacogenomics (PGx). PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org/ontologies/PGXO).
+
+A full description of the motivation, implementation and instantiation of PGxO is available in [2].
+
+When citing PGxO, please use [2].</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>pgxo</b> (default)</td><td>&lt;http://ns.inria.fr/pgxo/&gt;</td></tr>
+<tr><td><b>dc</b></td><td>&lt;http://purl.org/dc/elements/1.1/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>pgxo</b></td><td>&lt;http://ns.inria.fr/pgxo&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>ro</b></td><td>&lt;http://purl.obolibrary.org/obo/&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">PGxO: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#Disease" title="http://ns.inria.fr/pgxo/Disease">Disease</a>
+   </li>
+   <li>
+      <a href="#Drug" title="http://ns.inria.fr/pgxo/Drug">Drug</a>
+   </li>
+   <li>
+      <a href="#Gene" title="http://ns.inria.fr/pgxo/Gene">Gene</a>
+   </li>
+   <li>
+      <a href="#GeneticFactor" title="http://ns.inria.fr/pgxo/GeneticFactor">Genetic factor</a>
+   </li>
+   <li>
+      <a href="#GenomicVariation" title="http://ns.inria.fr/pgxo/GenomicVariation">Genomic variation</a>
+   </li>
+   <li>
+      <a href="#Haplotype" title="http://ns.inria.fr/pgxo/Haplotype">Haplotype</a>
+   </li>
+   <li>
+      <a href="#PharmacodynamicPhenotype" title="http://ns.inria.fr/pgxo/PharmacodynamicPhenotype">Pharmacodynamic phenotype</a>
+   </li>
+   <li>
+      <a href="#PharmacogenomicRelationship"
+         title="http://ns.inria.fr/pgxo/PharmacogenomicRelationship">Pharmacogenomic relationship</a>
+   </li>
+   <li>
+      <a href="#PharmacokineticPhenotype" title="http://ns.inria.fr/pgxo/PharmacokineticPhenotype">Pharmacokinetic phenotype</a>
+   </li>
+   <li>
+      <a href="#Phenotype" title="http://ns.inria.fr/pgxo/Phenotype">Phenotype</a>
+   </li>
+   <li>
+      <a href="#Variant" title="http://ns.inria.fr/pgxo/Variant">Variant</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#causes" title="http://ns.inria.fr/pgxo/causes">
+         <span>causes</span>
+      </a>
+   </li>
+   <li>
+      <a href="#decreases" title="http://ns.inria.fr/pgxo/decreases">
+         <span>decreases</span>
+      </a>
+   </li>
+   <li>
+      <a href="#decreasesChanceOf" title="http://ns.inria.fr/pgxo/decreasesChanceOf">
+         <span>decreases Chance Of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.obolibrary.org/obo/RO_0002502" title="http://purl.obolibrary.org/obo/RO_0002502">depends on</a>
+   </li>
+   <li>
+      <a href="#doesNotCause" title="http://ns.inria.fr/pgxo/doesNotCause">
+         <span>does Not Cause</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotDecrease" title="http://ns.inria.fr/pgxo/doesNotDecrease">
+         <span>does Not Decrease</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotDecreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf">
+         <span>does Not Decrease Chance Of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotIncrease" title="http://ns.inria.fr/pgxo/doesNotIncrease">
+         <span>does Not Increase</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotIncreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf">
+         <span>does Not Increase Chance Of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">
+         <span>does Not Influence</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotMetabolize" title="http://ns.inria.fr/pgxo/doesNotMetabolize">
+         <span>does Not Metabolize</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotTransport" title="http://ns.inria.fr/pgxo/doesNotTransport">
+         <span>does Not Transport</span>
+      </a>
+   </li>
+   <li>
+      <a href="#doesNotTreat" title="http://ns.inria.fr/pgxo/doesNotTreat">
+         <span>does Not Treat</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasChanceDecreasedBy">
+         <span>has Chance Decreased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasChanceIncreasedBy">
+         <span>has Chance Increased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasNotChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy">
+         <span>has Not Chance Decreased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasNotChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy">
+         <span>has Not Chance Increased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.obolibrary.org/obo/BFO_0000051" title="http://purl.obolibrary.org/obo/BFO_0000051">has part</a>
+   </li>
+   <li>
+      <a href="#increases" title="http://ns.inria.fr/pgxo/increases">
+         <span>increases</span>
+      </a>
+   </li>
+   <li>
+      <a href="#increasesChanceOf" title="http://ns.inria.fr/pgxo/increasesChanceOf">
+         <span>increases Chance Of</span>
+      </a>
+   </li>
+   <li>
+      <a href="#influences" title="http://ns.inria.fr/pgxo/influences">
+         <span>influences</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith">
+         <span>is Associated With</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isCausedBy" title="http://ns.inria.fr/pgxo/isCausedBy">
+         <span>is Caused By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isDecreasedBy" title="http://ns.inria.fr/pgxo/isDecreasedBy">
+         <span>is Decreased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isIncreasedBy" title="http://ns.inria.fr/pgxo/isIncreasedBy">
+         <span>is Increased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">
+         <span>is Influenced By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isMetabolizedBy" title="http://ns.inria.fr/pgxo/isMetabolizedBy">
+         <span>is Metabolized By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith">
+         <span>is Not Associated With</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotCausedBy" title="http://ns.inria.fr/pgxo/isNotCausedBy">
+         <span>is Not Caused By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotDecreasedBy" title="http://ns.inria.fr/pgxo/isNotDecreasedBy">
+         <span>is Not Decreased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotIncreasedBy" title="http://ns.inria.fr/pgxo/isNotIncreasedBy">
+         <span>is Not Increased By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">
+         <span>is Not Influenced By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotMetabolizedBy" title="http://ns.inria.fr/pgxo/isNotMetabolizedBy">
+         <span>is Not Metabolized By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotTransportedBy" title="http://ns.inria.fr/pgxo/isNotTransportedBy">
+         <span>is Not Transported By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isNotTreatedBy" title="http://ns.inria.fr/pgxo/isNotTreatedBy">
+         <span>is Not Treated By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isTransportedBy" title="http://ns.inria.fr/pgxo/isTransportedBy">
+         <span>is Transported By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#isTreatedBy" title="http://ns.inria.fr/pgxo/isTreatedBy">
+         <span>is Treated By</span>
+      </a>
+   </li>
+   <li>
+      <a href="#metabolizes" title="http://ns.inria.fr/pgxo/metabolizes">
+         <span>metabolizes</span>
+      </a>
+   </li>
+   <li>
+      <a href="#http://purl.obolibrary.org/obo/BFO_0000050" title="http://purl.obolibrary.org/obo/BFO_0000050">part of</a>
+   </li>
+   <li>
+      <a href="#transports" title="http://ns.inria.fr/pgxo/transports">
+         <span>transports</span>
+      </a>
+   </li>
+   <li>
+      <a href="#treats" title="http://ns.inria.fr/pgxo/treats">
+         <span>treats</span>
+      </a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#clinPGxLevelOfEvidence" title="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence">
+         <span>clin PGx Level Of Evidence</span>
+      </a>
+   </li>
+</ul>
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">PGxO: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for PGxO classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by PGxO.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#Disease" title="http://ns.inria.fr/pgxo/Disease">Disease</a></li>
+  <li><a href="#Drug" title="http://ns.inria.fr/pgxo/Drug">Drug</a></li>
+  <li><a href="#Gene" title="http://ns.inria.fr/pgxo/Gene">Gene</a></li>
+  <li><a href="#GeneticFactor" title="http://ns.inria.fr/pgxo/GeneticFactor">Genetic factor</a></li>
+  <li><a href="#GenomicVariation" title="http://ns.inria.fr/pgxo/GenomicVariation">Genomic variation</a></li>
+  <li><a href="#Haplotype" title="http://ns.inria.fr/pgxo/Haplotype">Haplotype</a></li>
+  <li><a href="#PharmacodynamicPhenotype" title="http://ns.inria.fr/pgxo/PharmacodynamicPhenotype">Pharmacodynamic phenotype</a></li>
+  <li><a href="#PharmacogenomicRelationship" title="http://ns.inria.fr/pgxo/PharmacogenomicRelationship">Pharmacogenomic relationship</a></li>
+  <li><a href="#PharmacokineticPhenotype" title="http://ns.inria.fr/pgxo/PharmacokineticPhenotype">Pharmacokinetic phenotype</a></li>
+  <li><a href="#Phenotype" title="http://ns.inria.fr/pgxo/Phenotype">Phenotype</a></li>
+  <li><a href="#Variant" title="http://ns.inria.fr/pgxo/Variant">Variant</a></li>
+ </ul>
+ <div class="entity" id="Disease">
+  <h3>Disease<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Disease</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Phenotype" title="http://ns.inria.fr/pgxo/Phenotype">Phenotype</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Drug">
+  <h3>Drug<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Drug</p>
+ </div>
+ <div class="entity" id="Gene">
+  <h3>Gene<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Gene</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#GeneticFactor" title="http://ns.inria.fr/pgxo/GeneticFactor">Genetic factor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GeneticFactor">
+  <h3>Genetic factor<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/GeneticFactor</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Gene" title="http://ns.inria.fr/pgxo/Gene">Gene</a> <sup class="type-c" title="class">c</sup>, <a href="#GenomicVariation" title="http://ns.inria.fr/pgxo/GenomicVariation">Genomic variation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="GenomicVariation">
+  <h3>Genomic variation<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/GenomicVariation</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#GeneticFactor" title="http://ns.inria.fr/pgxo/GeneticFactor">Genetic factor</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Haplotype" title="http://ns.inria.fr/pgxo/Haplotype">Haplotype</a> <sup class="type-c" title="class">c</sup>, <a href="#Variant" title="http://ns.inria.fr/pgxo/Variant">Variant</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Haplotype">
+  <h3>Haplotype<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Haplotype</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#GenomicVariation" title="http://ns.inria.fr/pgxo/GenomicVariation">Genomic variation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PharmacodynamicPhenotype">
+  <h3>Pharmacodynamic phenotype<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/PharmacodynamicPhenotype</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Phenotype" title="http://ns.inria.fr/pgxo/Phenotype">Phenotype</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PharmacogenomicRelationship">
+  <h3>Pharmacogenomic relationship<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/PharmacogenomicRelationship</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="http://www.w3.org/ns/prov#Entity" target="_blank" title="http://www.w3.org/ns/prov#Entity">Entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#clinPGxLevelOfEvidence" title="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence">clin PGx Level Of Evidence</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PharmacokineticPhenotype">
+  <h3>Pharmacokinetic phenotype<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/PharmacokineticPhenotype</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Phenotype" title="http://ns.inria.fr/pgxo/Phenotype">Phenotype</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Phenotype">
+  <h3>Phenotype<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Phenotype</p>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#Disease" title="http://ns.inria.fr/pgxo/Disease">Disease</a> <sup class="type-c" title="class">c</sup>, <a href="#PharmacodynamicPhenotype" title="http://ns.inria.fr/pgxo/PharmacodynamicPhenotype">Pharmacodynamic phenotype</a> <sup class="type-c" title="class">c</sup>, <a href="#PharmacokineticPhenotype" title="http://ns.inria.fr/pgxo/PharmacokineticPhenotype">Pharmacokinetic phenotype</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Variant">
+  <h3>Variant<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/Variant</p>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#GenomicVariation" title="http://ns.inria.fr/pgxo/GenomicVariation">Genomic variation</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#causes" title="http://ns.inria.fr/pgxo/causes"> <span>causes</span> </a></li>
+  <li><a href="#decreases" title="http://ns.inria.fr/pgxo/decreases"> <span>decreases</span> </a></li>
+  <li><a href="#decreasesChanceOf" title="http://ns.inria.fr/pgxo/decreasesChanceOf"> <span>decreases Chance Of</span> </a></li>
+  <li><a href="#http://purl.obolibrary.org/obo/RO_0002502" title="http://purl.obolibrary.org/obo/RO_0002502">depends on</a></li>
+  <li><a href="#doesNotCause" title="http://ns.inria.fr/pgxo/doesNotCause"> <span>does Not Cause</span> </a></li>
+  <li><a href="#doesNotDecrease" title="http://ns.inria.fr/pgxo/doesNotDecrease"> <span>does Not Decrease</span> </a></li>
+  <li><a href="#doesNotDecreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf"> <span>does Not Decrease Chance Of</span> </a></li>
+  <li><a href="#doesNotIncrease" title="http://ns.inria.fr/pgxo/doesNotIncrease"> <span>does Not Increase</span> </a></li>
+  <li><a href="#doesNotIncreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf"> <span>does Not Increase Chance Of</span> </a></li>
+  <li><a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence"> <span>does Not Influence</span> </a></li>
+  <li><a href="#doesNotMetabolize" title="http://ns.inria.fr/pgxo/doesNotMetabolize"> <span>does Not Metabolize</span> </a></li>
+  <li><a href="#doesNotTransport" title="http://ns.inria.fr/pgxo/doesNotTransport"> <span>does Not Transport</span> </a></li>
+  <li><a href="#doesNotTreat" title="http://ns.inria.fr/pgxo/doesNotTreat"> <span>does Not Treat</span> </a></li>
+  <li><a href="#hasChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasChanceDecreasedBy"> <span>has Chance Decreased By</span> </a></li>
+  <li><a href="#hasChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasChanceIncreasedBy"> <span>has Chance Increased By</span> </a></li>
+  <li><a href="#hasNotChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy"> <span>has Not Chance Decreased By</span> </a></li>
+  <li><a href="#hasNotChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy"> <span>has Not Chance Increased By</span> </a></li>
+  <li><a href="#http://purl.obolibrary.org/obo/BFO_0000051" title="http://purl.obolibrary.org/obo/BFO_0000051">has part</a></li>
+  <li><a href="#increases" title="http://ns.inria.fr/pgxo/increases"> <span>increases</span> </a></li>
+  <li><a href="#increasesChanceOf" title="http://ns.inria.fr/pgxo/increasesChanceOf"> <span>increases Chance Of</span> </a></li>
+  <li><a href="#influences" title="http://ns.inria.fr/pgxo/influences"> <span>influences</span> </a></li>
+  <li><a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith"> <span>is Associated With</span> </a></li>
+  <li><a href="#isCausedBy" title="http://ns.inria.fr/pgxo/isCausedBy"> <span>is Caused By</span> </a></li>
+  <li><a href="#isDecreasedBy" title="http://ns.inria.fr/pgxo/isDecreasedBy"> <span>is Decreased By</span> </a></li>
+  <li><a href="#isIncreasedBy" title="http://ns.inria.fr/pgxo/isIncreasedBy"> <span>is Increased By</span> </a></li>
+  <li><a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy"> <span>is Influenced By</span> </a></li>
+  <li><a href="#isMetabolizedBy" title="http://ns.inria.fr/pgxo/isMetabolizedBy"> <span>is Metabolized By</span> </a></li>
+  <li><a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith"> <span>is Not Associated With</span> </a></li>
+  <li><a href="#isNotCausedBy" title="http://ns.inria.fr/pgxo/isNotCausedBy"> <span>is Not Caused By</span> </a></li>
+  <li><a href="#isNotDecreasedBy" title="http://ns.inria.fr/pgxo/isNotDecreasedBy"> <span>is Not Decreased By</span> </a></li>
+  <li><a href="#isNotIncreasedBy" title="http://ns.inria.fr/pgxo/isNotIncreasedBy"> <span>is Not Increased By</span> </a></li>
+  <li><a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy"> <span>is Not Influenced By</span> </a></li>
+  <li><a href="#isNotMetabolizedBy" title="http://ns.inria.fr/pgxo/isNotMetabolizedBy"> <span>is Not Metabolized By</span> </a></li>
+  <li><a href="#isNotTransportedBy" title="http://ns.inria.fr/pgxo/isNotTransportedBy"> <span>is Not Transported By</span> </a></li>
+  <li><a href="#isNotTreatedBy" title="http://ns.inria.fr/pgxo/isNotTreatedBy"> <span>is Not Treated By</span> </a></li>
+  <li><a href="#isTransportedBy" title="http://ns.inria.fr/pgxo/isTransportedBy"> <span>is Transported By</span> </a></li>
+  <li><a href="#isTreatedBy" title="http://ns.inria.fr/pgxo/isTreatedBy"> <span>is Treated By</span> </a></li>
+  <li><a href="#metabolizes" title="http://ns.inria.fr/pgxo/metabolizes"> <span>metabolizes</span> </a></li>
+  <li><a href="#http://purl.obolibrary.org/obo/BFO_0000050" title="http://purl.obolibrary.org/obo/BFO_0000050">part of</a></li>
+  <li><a href="#transports" title="http://ns.inria.fr/pgxo/transports"> <span>transports</span> </a></li>
+  <li><a href="#treats" title="http://ns.inria.fr/pgxo/treats"> <span>treats</span> </a></li>
+ </ul>
+ <div class="entity" id="causes">
+  <h3>causes<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/causes</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isCausedBy" title="http://ns.inria.fr/pgxo/isCausedBy">is Caused By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="decreases">
+  <h3>decreases<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/decreases</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isDecreasedBy" title="http://ns.inria.fr/pgxo/isDecreasedBy">is Decreased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="decreasesChanceOf">
+  <h3>decreases Chance Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/decreasesChanceOf</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasChanceDecreasedBy">has Chance Decreased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://purl.obolibrary.org/obo/RO_0002502">
+  <h3>depends on<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/RO_0002502</p>
+ </div>
+ <div class="entity" id="doesNotCause">
+  <h3>does Not Cause<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotCause</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotCausedBy" title="http://ns.inria.fr/pgxo/isNotCausedBy">is Not Caused By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotDecrease">
+  <h3>does Not Decrease<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotDecrease</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotDecreasedBy" title="http://ns.inria.fr/pgxo/isNotDecreasedBy">is Not Decreased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotDecreaseChanceOf">
+  <h3>does Not Decrease Chance Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasNotChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy">has Not Chance Decreased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotIncrease">
+  <h3>does Not Increase<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotIncrease</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotIncreasedBy" title="http://ns.inria.fr/pgxo/isNotIncreasedBy">is Not Increased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotIncreaseChanceOf">
+  <h3>does Not Increase Chance Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasNotChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy">has Not Chance Increased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotInfluence">
+  <h3>does Not Influence<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotInfluence</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith">is Not Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#doesNotCause" title="http://ns.inria.fr/pgxo/doesNotCause">does Not Cause</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotDecrease" title="http://ns.inria.fr/pgxo/doesNotDecrease">does Not Decrease</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotDecreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf">does Not Decrease Chance Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotIncrease" title="http://ns.inria.fr/pgxo/doesNotIncrease">does Not Increase</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotIncreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf">does Not Increase Chance Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotMetabolize" title="http://ns.inria.fr/pgxo/doesNotMetabolize">does Not Metabolize</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotTransport" title="http://ns.inria.fr/pgxo/doesNotTransport">does Not Transport</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotMetabolize">
+  <h3>does Not Metabolize<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotMetabolize</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotMetabolizedBy" title="http://ns.inria.fr/pgxo/isNotMetabolizedBy">is Not Metabolized By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotTransport">
+  <h3>does Not Transport<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotTransport</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotTransportedBy" title="http://ns.inria.fr/pgxo/isNotTransportedBy">is Not Transported By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="doesNotTreat">
+  <h3>does Not Treat<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/doesNotTreat</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith">is Not Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isNotTreatedBy" title="http://ns.inria.fr/pgxo/isNotTreatedBy">is Not Treated By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasChanceDecreasedBy">
+  <h3>has Chance Decreased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/hasChanceDecreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#decreasesChanceOf" title="http://ns.inria.fr/pgxo/decreasesChanceOf">decreases Chance Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasChanceIncreasedBy">
+  <h3>has Chance Increased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/hasChanceIncreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#increasesChanceOf" title="http://ns.inria.fr/pgxo/increasesChanceOf">increases Chance Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasNotChanceDecreasedBy">
+  <h3>has Not Chance Decreased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotDecreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf">does Not Decrease Chance Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasNotChanceIncreasedBy">
+  <h3>has Not Chance Increased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotIncreaseChanceOf" title="http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf">does Not Increase Chance Of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000051">
+  <h3>has part<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000051</p>
+  <div class="description">
+   <dl>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#http://purl.obolibrary.org/obo/BFO_0000050" title="http://purl.obolibrary.org/obo/BFO_0000050">part of</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="increases">
+  <h3>increases<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/increases</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isIncreasedBy" title="http://ns.inria.fr/pgxo/isIncreasedBy">is Increased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="increasesChanceOf">
+  <h3>increases Chance Of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/increasesChanceOf</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#hasChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasChanceIncreasedBy">has Chance Increased By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="influences">
+  <h3>influences<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/influences</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith">is Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#causes" title="http://ns.inria.fr/pgxo/causes">causes</a> <sup class="type-op" title="object property">op</sup>, <a href="#decreases" title="http://ns.inria.fr/pgxo/decreases">decreases</a> <sup class="type-op" title="object property">op</sup>, <a href="#decreasesChanceOf" title="http://ns.inria.fr/pgxo/decreasesChanceOf">decreases Chance Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#increases" title="http://ns.inria.fr/pgxo/increases">increases</a> <sup class="type-op" title="object property">op</sup>, <a href="#increasesChanceOf" title="http://ns.inria.fr/pgxo/increasesChanceOf">increases Chance Of</a> <sup class="type-op" title="object property">op</sup>, <a href="#metabolizes" title="http://ns.inria.fr/pgxo/metabolizes">metabolizes</a> <sup class="type-op" title="object property">op</sup>, <a href="#transports" title="http://ns.inria.fr/pgxo/transports">transports</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isAssociatedWith">
+  <h3>is Associated With<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isAssociatedWith</p>
+  <div class="description">
+   <p><strong>has characteristics: </strong> symmetric</p>
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>, <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTreatedBy" title="http://ns.inria.fr/pgxo/isTreatedBy">is Treated By</a> <sup class="type-op" title="object property">op</sup>, <a href="#treats" title="http://ns.inria.fr/pgxo/treats">treats</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isCausedBy">
+  <h3>is Caused By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isCausedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#causes" title="http://ns.inria.fr/pgxo/causes">causes</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isDecreasedBy">
+  <h3>is Decreased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isDecreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#decreases" title="http://ns.inria.fr/pgxo/decreases">decreases</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isIncreasedBy">
+  <h3>is Increased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isIncreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#increases" title="http://ns.inria.fr/pgxo/increases">increases</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isInfluencedBy">
+  <h3>is Influenced By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isInfluencedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith">is Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#hasChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasChanceDecreasedBy">has Chance Decreased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasChanceIncreasedBy">has Chance Increased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isCausedBy" title="http://ns.inria.fr/pgxo/isCausedBy">is Caused By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isDecreasedBy" title="http://ns.inria.fr/pgxo/isDecreasedBy">is Decreased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isIncreasedBy" title="http://ns.inria.fr/pgxo/isIncreasedBy">is Increased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isMetabolizedBy" title="http://ns.inria.fr/pgxo/isMetabolizedBy">is Metabolized By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isTransportedBy" title="http://ns.inria.fr/pgxo/isTransportedBy">is Transported By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isMetabolizedBy">
+  <h3>is Metabolized By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isMetabolizedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#metabolizes" title="http://ns.inria.fr/pgxo/metabolizes">metabolizes</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotAssociatedWith">
+  <h3>is Not Associated With<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotAssociatedWith</p>
+  <div class="description">
+   <p><strong>has characteristics: </strong> symmetric</p>
+   <dl>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>, <a href="#doesNotTreat" title="http://ns.inria.fr/pgxo/doesNotTreat">does Not Treat</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotTreatedBy" title="http://ns.inria.fr/pgxo/isNotTreatedBy">is Not Treated By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotCausedBy">
+  <h3>is Not Caused By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotCausedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotCause" title="http://ns.inria.fr/pgxo/doesNotCause">does Not Cause</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotDecreasedBy">
+  <h3>is Not Decreased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotDecreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotDecrease" title="http://ns.inria.fr/pgxo/doesNotDecrease">does Not Decrease</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotIncreasedBy">
+  <h3>is Not Increased By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotIncreasedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotIncrease" title="http://ns.inria.fr/pgxo/doesNotIncrease">does Not Increase</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotInfluencedBy">
+  <h3>is Not Influenced By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotInfluencedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith">is Not Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     has sub-properties
+    </dt>
+    <dd>
+     <a href="#hasNotChanceDecreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy">has Not Chance Decreased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasNotChanceIncreasedBy" title="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy">has Not Chance Increased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotCausedBy" title="http://ns.inria.fr/pgxo/isNotCausedBy">is Not Caused By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotDecreasedBy" title="http://ns.inria.fr/pgxo/isNotDecreasedBy">is Not Decreased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotIncreasedBy" title="http://ns.inria.fr/pgxo/isNotIncreasedBy">is Not Increased By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotMetabolizedBy" title="http://ns.inria.fr/pgxo/isNotMetabolizedBy">is Not Metabolized By</a> <sup class="type-op" title="object property">op</sup>, <a href="#isNotTransportedBy" title="http://ns.inria.fr/pgxo/isNotTransportedBy">is Not Transported By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotInfluence" title="http://ns.inria.fr/pgxo/doesNotInfluence">does Not Influence</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotMetabolizedBy">
+  <h3>is Not Metabolized By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotMetabolizedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotMetabolize" title="http://ns.inria.fr/pgxo/doesNotMetabolize">does Not Metabolize</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotTransportedBy">
+  <h3>is Not Transported By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotTransportedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotInfluencedBy" title="http://ns.inria.fr/pgxo/isNotInfluencedBy">is Not Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotTransport" title="http://ns.inria.fr/pgxo/doesNotTransport">does Not Transport</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isNotTreatedBy">
+  <h3>is Not Treated By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isNotTreatedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isNotAssociatedWith" title="http://ns.inria.fr/pgxo/isNotAssociatedWith">is Not Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#doesNotTreat" title="http://ns.inria.fr/pgxo/doesNotTreat">does Not Treat</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isTransportedBy">
+  <h3>is Transported By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isTransportedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isInfluencedBy" title="http://ns.inria.fr/pgxo/isInfluencedBy">is Influenced By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#transports" title="http://ns.inria.fr/pgxo/transports">transports</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isTreatedBy">
+  <h3>is Treated By<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/isTreatedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith">is Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#treats" title="http://ns.inria.fr/pgxo/treats">treats</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="metabolizes">
+  <h3>metabolizes<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/metabolizes</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isMetabolizedBy" title="http://ns.inria.fr/pgxo/isMetabolizedBy">is Metabolized By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="http://purl.obolibrary.org/obo/BFO_0000050">
+  <h3>part of<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://purl.obolibrary.org/obo/BFO_0000050</p>
+  <div class="description">
+   <dl>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#http://purl.obolibrary.org/obo/BFO_0000051" title="http://purl.obolibrary.org/obo/BFO_0000051">has part</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="transports">
+  <h3>transports<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/transports</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#influences" title="http://ns.inria.fr/pgxo/influences">influences</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isTransportedBy" title="http://ns.inria.fr/pgxo/isTransportedBy">is Transported By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="treats">
+  <h3>treats<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/treats</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="#isAssociatedWith" title="http://ns.inria.fr/pgxo/isAssociatedWith">is Associated With</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+    <dt>
+     is inverse of
+    </dt>
+    <dd>
+     <a href="#isTreatedBy" title="http://ns.inria.fr/pgxo/isTreatedBy">is Treated By</a> <sup class="type-op" title="object property">op</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#clinPGxLevelOfEvidence" title="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence"> <span>clin PGx Level Of Evidence</span> </a></li>
+ </ul>
+ <div class="entity" id="clinPGxLevelOfEvidence">
+  <h3>clin PGx Level Of Evidence<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence</p>
+  <div class="description">
+   <p><strong>has characteristics: </strong> functional</p>
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#PharmacogenomicRelationship" title="http://ns.inria.fr/pgxo/PharmacogenomicRelationship">Pharmacogenomic relationship</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+1. Monnin, P., Jonquet, C., Legrand, J., Napoli, A., & Coulet, A. (2017, October).
+PGxO: A very lite ontology to reconcile pharmacogenomic knowledge units.
+In _Methods, tools & platforms for Personalized Medicine in the Big Data Era_.
+[Link](https://hal.inria.fr/hal-01593184/document)
+2. Monnin, P., Legrand, J., Husson, G., Ringot, P., Tchechmedjiev, A.,
+Jonquet, C., Napoli, A., & Coulet, A.
+PGxO and PGxLOD: a reconciliation of pharmacogenomic knowledge of various provenances, 
+enabling further comparison. BMC Bioinformatics 20-S(4): 139:1-139:16 (2019). 
+[Link](https://doi.org/10.1186/s12859-019-2693-9)
+</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<p>PGxO is supported by the <a href="http://practikpharma.loria.fr/"><b>PractiKPharma</b></a> project,
+funded by the French National Research Agency (ANR) under grant ANR-15-CE23-0028.</p>
+
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>

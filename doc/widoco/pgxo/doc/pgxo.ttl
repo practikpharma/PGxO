@@ -1,0 +1,350 @@
+@prefix : <http://ns.inria.fr/pgxo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://ns.inria.fr/pgxo/> .
+
+<http://ns.inria.fr/pgxo/> rdf:type owl:Ontology ;
+                            <http://purl.org/dc/elements/1.1/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" ,
+                                                                      "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" ,
+                                                                      "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" ;
+                            <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by-nc/4.0/" ;
+                            rdfs:comment """- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/
+- Remove usage of DUL
+- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"""@en ,
+                                         "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en ;
+                            rdfs:label "PGxO: a lite Pharmacogenomic Ontology"@en ;
+                            owl:versionInfo "0.6" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/license
+<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://ns.inria.fr/pgxo/causes
+:causes rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :influences ;
+        owl:inverseOf :isCausedBy .
+
+
+###  http://ns.inria.fr/pgxo/decreases
+:decreases rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :influences ;
+           owl:inverseOf :isDecreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/decreasesChanceOf
+:decreasesChanceOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :influences ;
+                   owl:inverseOf :hasChanceDecreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotCause
+:doesNotCause rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :doesNotInfluence ;
+              owl:inverseOf :isNotCausedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotDecrease
+:doesNotDecrease rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :doesNotInfluence ;
+                 owl:inverseOf :isNotDecreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf
+:doesNotDecreaseChanceOf rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :doesNotInfluence ;
+                         owl:inverseOf :hasNotChanceDecreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotIncrease
+:doesNotIncrease rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :doesNotInfluence ;
+                 owl:inverseOf :isNotIncreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf
+:doesNotIncreaseChanceOf rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :doesNotInfluence ;
+                         owl:inverseOf :hasNotChanceIncreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotInfluence
+:doesNotInfluence rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isNotAssociatedWith ;
+                  owl:inverseOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotMetabolize
+:doesNotMetabolize rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :doesNotInfluence ;
+                   owl:inverseOf :isNotMetabolizedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotTransport
+:doesNotTransport rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :doesNotInfluence ;
+                  owl:inverseOf :isNotTransportedBy .
+
+
+###  http://ns.inria.fr/pgxo/doesNotTreat
+:doesNotTreat rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :isNotAssociatedWith ;
+              owl:inverseOf :isNotTreatedBy .
+
+
+###  http://ns.inria.fr/pgxo/hasChanceDecreasedBy
+:hasChanceDecreasedBy rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :isInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/hasChanceIncreasedBy
+:hasChanceIncreasedBy rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf :isInfluencedBy ;
+                      owl:inverseOf :increasesChanceOf .
+
+
+###  http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy
+:hasNotChanceDecreasedBy rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy
+:hasNotChanceIncreasedBy rdf:type owl:ObjectProperty ;
+                         rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/increases
+:increases rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf :influences ;
+           owl:inverseOf :isIncreasedBy .
+
+
+###  http://ns.inria.fr/pgxo/increasesChanceOf
+:increasesChanceOf rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :influences .
+
+
+###  http://ns.inria.fr/pgxo/influences
+:influences rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isAssociatedWith ;
+            owl:inverseOf :isInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isAssociatedWith
+:isAssociatedWith rdf:type owl:ObjectProperty ,
+                           owl:SymmetricProperty .
+
+
+###  http://ns.inria.fr/pgxo/isCausedBy
+:isCausedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :isInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isDecreasedBy
+:isDecreasedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :isInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isIncreasedBy
+:isIncreasedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :isInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isInfluencedBy
+:isInfluencedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :isAssociatedWith .
+
+
+###  http://ns.inria.fr/pgxo/isMetabolizedBy
+:isMetabolizedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isInfluencedBy ;
+                 owl:inverseOf :metabolizes .
+
+
+###  http://ns.inria.fr/pgxo/isNotAssociatedWith
+:isNotAssociatedWith rdf:type owl:ObjectProperty ,
+                              owl:SymmetricProperty .
+
+
+###  http://ns.inria.fr/pgxo/isNotCausedBy
+:isNotCausedBy rdf:type owl:ObjectProperty ;
+               rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isNotDecreasedBy
+:isNotDecreasedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isNotIncreasedBy
+:isNotIncreasedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isNotInfluencedBy
+:isNotInfluencedBy rdf:type owl:ObjectProperty ;
+                   rdfs:subPropertyOf :isNotAssociatedWith .
+
+
+###  http://ns.inria.fr/pgxo/isNotMetabolizedBy
+:isNotMetabolizedBy rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isNotTransportedBy
+:isNotTransportedBy rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :isNotInfluencedBy .
+
+
+###  http://ns.inria.fr/pgxo/isNotTreatedBy
+:isNotTreatedBy rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :isNotAssociatedWith .
+
+
+###  http://ns.inria.fr/pgxo/isTransportedBy
+:isTransportedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :isInfluencedBy ;
+                 owl:inverseOf :transports .
+
+
+###  http://ns.inria.fr/pgxo/isTreatedBy
+:isTreatedBy rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :isAssociatedWith ;
+             owl:inverseOf :treats .
+
+
+###  http://ns.inria.fr/pgxo/metabolizes
+:metabolizes rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :influences .
+
+
+###  http://ns.inria.fr/pgxo/qualifiedProxy
+:qualifiedProxy rdf:type owl:ObjectProperty .
+
+
+###  http://ns.inria.fr/pgxo/qualifiedVariation
+:qualifiedVariation rdf:type owl:ObjectProperty .
+
+
+###  http://ns.inria.fr/pgxo/transports
+:transports rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf :influences .
+
+
+###  http://ns.inria.fr/pgxo/treats
+:treats rdf:type owl:ObjectProperty ;
+        rdfs:subPropertyOf :isAssociatedWith .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000050
+<http://purl.obolibrary.org/obo/BFO_0000050> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://purl.obolibrary.org/obo/BFO_0000051> ;
+                                             rdfs:label "part of"@en .
+
+
+###  http://purl.obolibrary.org/obo/BFO_0000051
+<http://purl.obolibrary.org/obo/BFO_0000051> rdf:type owl:ObjectProperty ;
+                                             rdfs:label "has part"@en .
+
+
+###  http://purl.obolibrary.org/obo/RO_0002502
+<http://purl.obolibrary.org/obo/RO_0002502> rdf:type owl:ObjectProperty ;
+                                            rdfs:label "depends on"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence
+:clinPGxLevelOfEvidence rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        rdfs:domain :PharmacogenomicRelationship .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://ns.inria.fr/pgxo/Disease
+:Disease rdf:type owl:Class ;
+         rdfs:subClassOf :Phenotype ;
+         rdfs:label "Disease" .
+
+
+###  http://ns.inria.fr/pgxo/Drug
+:Drug rdf:type owl:Class ;
+      rdfs:label "Drug" .
+
+
+###  http://ns.inria.fr/pgxo/Gene
+:Gene rdf:type owl:Class ;
+      rdfs:subClassOf :GeneticFactor ;
+      rdfs:label "Gene" .
+
+
+###  http://ns.inria.fr/pgxo/GeneticFactor
+:GeneticFactor rdf:type owl:Class ;
+               rdfs:label "Genetic factor" .
+
+
+###  http://ns.inria.fr/pgxo/GenomicVariation
+:GenomicVariation rdf:type owl:Class ;
+                  rdfs:subClassOf :GeneticFactor ;
+                  rdfs:label "Genomic variation" .
+
+
+###  http://ns.inria.fr/pgxo/Haplotype
+:Haplotype rdf:type owl:Class ;
+           rdfs:subClassOf :GenomicVariation ;
+           rdfs:label "Haplotype" .
+
+
+###  http://ns.inria.fr/pgxo/PharmacodynamicPhenotype
+:PharmacodynamicPhenotype rdf:type owl:Class ;
+                          rdfs:subClassOf :Phenotype ;
+                          rdfs:label "Pharmacodynamic phenotype" .
+
+
+###  http://ns.inria.fr/pgxo/PharmacogenomicRelationship
+:PharmacogenomicRelationship rdf:type owl:Class ;
+                             rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
+                             rdfs:label "Pharmacogenomic relationship" .
+
+
+###  http://ns.inria.fr/pgxo/PharmacokineticPhenotype
+:PharmacokineticPhenotype rdf:type owl:Class ;
+                          rdfs:subClassOf :Phenotype ;
+                          rdfs:label "Pharmacokinetic phenotype" .
+
+
+###  http://ns.inria.fr/pgxo/Phenotype
+:Phenotype rdf:type owl:Class ;
+           rdfs:label "Phenotype" .
+
+
+###  http://ns.inria.fr/pgxo/Variant
+:Variant rdf:type owl:Class ;
+         rdfs:subClassOf :GenomicVariation ;
+         rdfs:label "Variant" .
+
+
+###  http://www.w3.org/ns/prov#Entity
+<http://www.w3.org/ns/prov#Entity> rdf:type owl:Class .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

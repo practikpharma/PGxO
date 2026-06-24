@@ -1,0 +1,54 @@
+# Turn off MultiViews
+Options -MultiViews
+
+# Directive to ensure *.rdf files served as appropriate content type,
+# if not present in main apache config
+AddType application/rdf+xml .rdf
+AddType application/rdf+xml .owl
+AddType text/turtle .ttl
+AddType application/n-triples .n3
+AddType application/ld+json .jsonld
+
+# Rewrite engine setup
+RewriteEngine On
+
+#Change the path to the folder here
+RewriteBase /pgxo 
+
+# Rewrite rule to serve JSON-LD content from the vocabulary URI if requested
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} application/ld\+json
+RewriteRule ^(.*)$ doc/pgxo.jsonld [R=303,L]
+
+# Rewrite rule to serve RDF/XML content from the vocabulary URI if requested
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} application/rdf\+xml
+RewriteRule ^(.*)$ doc/pgxo.owl [R=303,L]
+
+# Rewrite rule to serve N-Triples content from the vocabulary URI if requested
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} application/n-triples
+RewriteRule ^(.*)$ doc/pgxo.nt [R=303,L]
+
+# Rewrite rule to serve TTL content from the vocabulary URI if requested
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} text/turtle
+RewriteRule ^(.*)$ doc/pgxo.ttl [R=303,L]
+
+# Rewrite rule to serve HTML content
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+RewriteRule ^(.+)$ doc/index.html#$1 [R=303,NE,L]
+
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} text/html [OR]
+RewriteCond %{HTTP_ACCEPT} application/xhtml\+xml [OR]
+RewriteCond %{HTTP_USER_AGENT} ^Mozilla/.*
+RewriteRule ^$ doc/index.html [R=303,L]
+
+# Fallback rule
+RewriteCond %{REQUEST_URI} !^/pgxo/doc/
+RewriteCond %{HTTP_ACCEPT} .+
+RewriteRule ^.*$ doc/406.html [R=406,L]
