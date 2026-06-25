@@ -139,7 +139,28 @@ This document describes the PGxO ontology, under the namespace http://ns.inria.f
 <!--INTRODUCTION SECTION-->
     <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
 <span class="markdown">
-PGxO is a lightweight and simple ontology to reconcile and trace knowledge in pharmacogenomics (PGx). PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org/ontologies/PGXO).
+PGxO is a lightweight and simple ontology to represent, trace, and reconcile knowledge in pharmacogenomics (PGx). 
+
+Knowledge in PGx involves n-ary tuples representing so-called "pharmacogenomic relationships" and their components of three distinct types: drugs, genetic factors, and phenotypes. In PGxO, such tuples are reified as instances of the class PharmacogenomicRelationship. Components (drugs, genetic factors, phenotypes) are associated with pharmacogenomic tuples through the properties isAssociatedWith and isNotAssociatedWith and their sub-properties, as illustrated below:
+</span>
+
+<div style="text-align: center; margin-top:2em; margin-bottom: 2em;">
+   <a href="resources/pgxo-overview.png"><img src="resources/pgxo-overview.png" alt="Overview of PGxO main classes and properties" style="width: 800px;"></a><br />
+   Figure 1: Overview of PGxO main classes and properties
+</div>
+
+Note that we re-use three properties of the Relation Ontology: ro:'part of', ro:'has part', and ro:'depends on'. Gene variants can be associated to their genes with ro:'part of' (and inversely using ro:'has part'). Complex phenotypes can be associated through ro:'depends on' to their sub-components (e.g., mentioned drugs, genes, or sub-phenotypes). To illustrate, 'metabolism of mercaptopurin' can be associated through ro:'depends on' to 'mercaptopurin'.
+
+An instantiated example of PGxO is displayed below, with additional metadata modeled using PROV-O:
+
+<div style="text-align: center; margin-top:2em; margin-bottom: 2em;">
+   <a href="resources/pgxo_with_instances_figure.png"><img src="resources/pgxo_with_instances_figure.png" alt="Instantiated example of PGxO" style="width: 800px;"></a><br />
+   Figure 2: Instantiated example of PGxO, <a href="https://github.com/practikpharma/PGxO/blob/master/doc/pgxo_with_instances.owl">available in RDF on GitHub</a>
+</div>
+
+<span class="markdown">
+
+PGxO is also available on the [NCBO BioPortal](https://bioportal.bioontology.org/ontologies/PGXO).
 
 A full description of the motivation, implementation and instantiation of PGxO is available in [2].
 
