@@ -37,217 +37,257 @@
 ###  http://ns.inria.fr/pgxo/causes
 :causes rdf:type owl:ObjectProperty ;
         rdfs:subPropertyOf :influences ;
-        owl:inverseOf :isCausedBy .
+        owl:inverseOf :isCausedBy ;
+        rdfs:label "causes"@en .
 
 
 ###  http://ns.inria.fr/pgxo/decreases
 :decreases rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :influences ;
-           owl:inverseOf :isDecreasedBy .
+           owl:inverseOf :isDecreasedBy ;
+           rdfs:label "decreases"@en .
 
 
 ###  http://ns.inria.fr/pgxo/decreasesChanceOf
 :decreasesChanceOf rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :influences ;
-                   owl:inverseOf :hasChanceDecreasedBy .
+                   owl:inverseOf :hasChanceDecreasedBy ;
+                   rdfs:label "decreases chance of"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotCause
 :doesNotCause rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :doesNotInfluence ;
-              owl:inverseOf :isNotCausedBy .
+              owl:inverseOf :isNotCausedBy ;
+              rdfs:label "does not cause"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotDecrease
 :doesNotDecrease rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :doesNotInfluence ;
-                 owl:inverseOf :isNotDecreasedBy .
+                 owl:inverseOf :isNotDecreasedBy ;
+                 rdfs:label "does not decrease"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf
 :doesNotDecreaseChanceOf rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :doesNotInfluence ;
-                         owl:inverseOf :hasNotChanceDecreasedBy .
+                         owl:inverseOf :hasNotChanceDecreasedBy ;
+                         rdfs:label "does not decrease chance of"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotIncrease
 :doesNotIncrease rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :doesNotInfluence ;
-                 owl:inverseOf :isNotIncreasedBy .
+                 owl:inverseOf :isNotIncreasedBy ;
+                 rdfs:label "does not increase"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf
 :doesNotIncreaseChanceOf rdf:type owl:ObjectProperty ;
                          rdfs:subPropertyOf :doesNotInfluence ;
-                         owl:inverseOf :hasNotChanceIncreasedBy .
+                         owl:inverseOf :hasNotChanceIncreasedBy ;
+                         rdfs:label "does not increase chance of"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotInfluence
 :doesNotInfluence rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :isNotAssociatedWith ;
-                  owl:inverseOf :isNotInfluencedBy .
+                  owl:inverseOf :isNotInfluencedBy ;
+                  rdfs:label "does not influence"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotMetabolize
 :doesNotMetabolize rdf:type owl:ObjectProperty ;
                    rdfs:subPropertyOf :doesNotInfluence ;
-                   owl:inverseOf :isNotMetabolizedBy .
+                   owl:inverseOf :isNotMetabolizedBy ;
+                   rdfs:label "does not metabolize"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotTransport
 :doesNotTransport rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf :doesNotInfluence ;
-                  owl:inverseOf :isNotTransportedBy .
+                  owl:inverseOf :isNotTransportedBy ;
+                  rdfs:label "does not transport"@en .
 
 
 ###  http://ns.inria.fr/pgxo/doesNotTreat
 :doesNotTreat rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf :isNotAssociatedWith ;
-              owl:inverseOf :isNotTreatedBy .
+              owl:inverseOf :isNotTreatedBy ;
+              rdfs:label "does not treat"@en .
 
 
 ###  http://ns.inria.fr/pgxo/hasChanceDecreasedBy
 :hasChanceDecreasedBy rdf:type owl:ObjectProperty ;
-                      rdfs:subPropertyOf :isInfluencedBy .
+                      rdfs:subPropertyOf :isInfluencedBy ;
+                      rdfs:label "has chance decreased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/hasChanceIncreasedBy
 :hasChanceIncreasedBy rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf :isInfluencedBy ;
-                      owl:inverseOf :increasesChanceOf .
+                      owl:inverseOf :increasesChanceOf ;
+                      rdfs:label "has chance increased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy
 :hasNotChanceDecreasedBy rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf :isNotInfluencedBy .
+                         rdfs:subPropertyOf :isNotInfluencedBy ;
+                         rdfs:label "has not chance decreased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy
 :hasNotChanceIncreasedBy rdf:type owl:ObjectProperty ;
-                         rdfs:subPropertyOf :isNotInfluencedBy .
+                         rdfs:subPropertyOf :isNotInfluencedBy ;
+                         rdfs:label "has not chance increased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/increases
 :increases rdf:type owl:ObjectProperty ;
            rdfs:subPropertyOf :influences ;
-           owl:inverseOf :isIncreasedBy .
+           owl:inverseOf :isIncreasedBy ;
+           rdfs:label "increases"@en .
 
 
 ###  http://ns.inria.fr/pgxo/increasesChanceOf
 :increasesChanceOf rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :influences .
+                   rdfs:subPropertyOf :influences ;
+                   rdfs:label "increases chance of"@en .
 
 
 ###  http://ns.inria.fr/pgxo/influences
 :influences rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf :isAssociatedWith ;
-            owl:inverseOf :isInfluencedBy .
+            owl:inverseOf :isInfluencedBy ;
+            rdfs:label "influences"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isAssociatedWith
 :isAssociatedWith rdf:type owl:ObjectProperty ,
-                           owl:SymmetricProperty .
+                           owl:SymmetricProperty ;
+                  rdfs:label "is associated with"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isCausedBy
 :isCausedBy rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :isInfluencedBy .
+            rdfs:subPropertyOf :isInfluencedBy ;
+            rdfs:label "is caused by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isDecreasedBy
 :isDecreasedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :isInfluencedBy .
+               rdfs:subPropertyOf :isInfluencedBy ;
+               rdfs:label "is decreased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isIncreasedBy
 :isIncreasedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :isInfluencedBy .
+               rdfs:subPropertyOf :isInfluencedBy ;
+               rdfs:label "is increased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isInfluencedBy
 :isInfluencedBy rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :isAssociatedWith .
+                rdfs:subPropertyOf :isAssociatedWith ;
+                rdfs:label "is influenced by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isMetabolizedBy
 :isMetabolizedBy rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :isInfluencedBy ;
-                 owl:inverseOf :metabolizes .
+                 owl:inverseOf :metabolizes ;
+                 rdfs:label "is metabolized by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotAssociatedWith
 :isNotAssociatedWith rdf:type owl:ObjectProperty ,
-                              owl:SymmetricProperty .
+                              owl:SymmetricProperty ;
+                     rdfs:label "is not associated with"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotCausedBy
 :isNotCausedBy rdf:type owl:ObjectProperty ;
-               rdfs:subPropertyOf :isNotInfluencedBy .
+               rdfs:subPropertyOf :isNotInfluencedBy ;
+               rdfs:label "is not caused by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotDecreasedBy
 :isNotDecreasedBy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :isNotInfluencedBy .
+                  rdfs:subPropertyOf :isNotInfluencedBy ;
+                  rdfs:label "is not decreased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotIncreasedBy
 :isNotIncreasedBy rdf:type owl:ObjectProperty ;
-                  rdfs:subPropertyOf :isNotInfluencedBy .
+                  rdfs:subPropertyOf :isNotInfluencedBy ;
+                  rdfs:label "is not increased by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotInfluencedBy
 :isNotInfluencedBy rdf:type owl:ObjectProperty ;
-                   rdfs:subPropertyOf :isNotAssociatedWith .
+                   rdfs:subPropertyOf :isNotAssociatedWith ;
+                   rdfs:label "is not influenced by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotMetabolizedBy
 :isNotMetabolizedBy rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :isNotInfluencedBy .
+                    rdfs:subPropertyOf :isNotInfluencedBy ;
+                    rdfs:label "is not metabolized by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotTransportedBy
 :isNotTransportedBy rdf:type owl:ObjectProperty ;
-                    rdfs:subPropertyOf :isNotInfluencedBy .
+                    rdfs:subPropertyOf :isNotInfluencedBy ;
+                    rdfs:label "is not transported by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isNotTreatedBy
 :isNotTreatedBy rdf:type owl:ObjectProperty ;
-                rdfs:subPropertyOf :isNotAssociatedWith .
+                rdfs:subPropertyOf :isNotAssociatedWith ;
+                rdfs:label "is not treated by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isTransportedBy
 :isTransportedBy rdf:type owl:ObjectProperty ;
                  rdfs:subPropertyOf :isInfluencedBy ;
-                 owl:inverseOf :transports .
+                 owl:inverseOf :transports ;
+                 rdfs:label "is transported by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/isTreatedBy
 :isTreatedBy rdf:type owl:ObjectProperty ;
              rdfs:subPropertyOf :isAssociatedWith ;
-             owl:inverseOf :treats .
+             owl:inverseOf :treats ;
+             rdfs:label "is treated by"@en .
 
 
 ###  http://ns.inria.fr/pgxo/metabolizes
 :metabolizes rdf:type owl:ObjectProperty ;
-             rdfs:subPropertyOf :influences .
+             rdfs:subPropertyOf :influences ;
+             rdfs:label "metabolizes"@en .
 
 
 ###  http://ns.inria.fr/pgxo/qualifiedProxy
-:qualifiedProxy rdf:type owl:ObjectProperty .
+:qualifiedProxy rdf:type owl:ObjectProperty ;
+                rdfs:label "qualified proxy"@en .
 
 
 ###  http://ns.inria.fr/pgxo/qualifiedVariation
-:qualifiedVariation rdf:type owl:ObjectProperty .
+:qualifiedVariation rdf:type owl:ObjectProperty ;
+                    rdfs:label "qualified variation"@en .
 
 
 ###  http://ns.inria.fr/pgxo/transports
 :transports rdf:type owl:ObjectProperty ;
-            rdfs:subPropertyOf :influences .
+            rdfs:subPropertyOf :influences ;
+            rdfs:label "transports"@en .
 
 
 ###  http://ns.inria.fr/pgxo/treats
 :treats rdf:type owl:ObjectProperty ;
-        rdfs:subPropertyOf :isAssociatedWith .
+        rdfs:subPropertyOf :isAssociatedWith ;
+        rdfs:label "treats"@en .
 
 
 ###  http://purl.obolibrary.org/obo/BFO_0000050
@@ -273,7 +313,8 @@
 ###  http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence
 :clinPGxLevelOfEvidence rdf:type owl:DatatypeProperty ,
                                  owl:FunctionalProperty ;
-                        rdfs:domain :PharmacogenomicRelationship .
+                        rdfs:domain :PharmacogenomicRelationship ;
+                        rdfs:label "level of evidence in ClinPGx"@en .
 
 
 #################################################################
@@ -283,64 +324,64 @@
 ###  http://ns.inria.fr/pgxo/Disease
 :Disease rdf:type owl:Class ;
          rdfs:subClassOf :Phenotype ;
-         rdfs:label "Disease" .
+         rdfs:label "Disease"@en .
 
 
 ###  http://ns.inria.fr/pgxo/Drug
 :Drug rdf:type owl:Class ;
-      rdfs:label "Drug" .
+      rdfs:label "Drug"@en .
 
 
 ###  http://ns.inria.fr/pgxo/Gene
 :Gene rdf:type owl:Class ;
       rdfs:subClassOf :GeneticFactor ;
-      rdfs:label "Gene" .
+      rdfs:label "Gene"@en .
 
 
 ###  http://ns.inria.fr/pgxo/GeneticFactor
 :GeneticFactor rdf:type owl:Class ;
-               rdfs:label "Genetic factor" .
+               rdfs:label "Genetic factor"@en .
 
 
 ###  http://ns.inria.fr/pgxo/GenomicVariation
 :GenomicVariation rdf:type owl:Class ;
                   rdfs:subClassOf :GeneticFactor ;
-                  rdfs:label "Genomic variation" .
+                  rdfs:label "Genomic variation"@en .
 
 
 ###  http://ns.inria.fr/pgxo/Haplotype
 :Haplotype rdf:type owl:Class ;
            rdfs:subClassOf :GenomicVariation ;
-           rdfs:label "Haplotype" .
+           rdfs:label "Haplotype"@en .
 
 
 ###  http://ns.inria.fr/pgxo/PharmacodynamicPhenotype
 :PharmacodynamicPhenotype rdf:type owl:Class ;
                           rdfs:subClassOf :Phenotype ;
-                          rdfs:label "Pharmacodynamic phenotype" .
+                          rdfs:label "Pharmacodynamic phenotype"@en .
 
 
 ###  http://ns.inria.fr/pgxo/PharmacogenomicRelationship
 :PharmacogenomicRelationship rdf:type owl:Class ;
                              rdfs:subClassOf <http://www.w3.org/ns/prov#Entity> ;
-                             rdfs:label "Pharmacogenomic relationship" .
+                             rdfs:label "Pharmacogenomic relationship"@en .
 
 
 ###  http://ns.inria.fr/pgxo/PharmacokineticPhenotype
 :PharmacokineticPhenotype rdf:type owl:Class ;
                           rdfs:subClassOf :Phenotype ;
-                          rdfs:label "Pharmacokinetic phenotype" .
+                          rdfs:label "Pharmacokinetic phenotype"@en .
 
 
 ###  http://ns.inria.fr/pgxo/Phenotype
 :Phenotype rdf:type owl:Class ;
-           rdfs:label "Phenotype" .
+           rdfs:label "Phenotype"@en .
 
 
 ###  http://ns.inria.fr/pgxo/Variant
 :Variant rdf:type owl:Class ;
          rdfs:subClassOf :GenomicVariation ;
-         rdfs:label "Variant" .
+         rdfs:label "Variant"@en .
 
 
 ###  http://www.w3.org/ns/prov#Entity

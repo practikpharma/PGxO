@@ -66,6 +66,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/causes">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isCausedBy"/>
+        <rdfs:label xml:lang="en">causes</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -76,6 +77,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/decreases">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isDecreasedBy"/>
+        <rdfs:label xml:lang="en">decreases</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -86,6 +88,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/decreasesChanceOf">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/hasChanceDecreasedBy"/>
+        <rdfs:label xml:lang="en">decreases chance of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -96,6 +99,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotCause">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotCausedBy"/>
+        <rdfs:label xml:lang="en">does not cause</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -106,6 +110,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotDecrease">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotDecreasedBy"/>
+        <rdfs:label xml:lang="en">does not decrease</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -116,6 +121,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotDecreaseChanceOf">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy"/>
+        <rdfs:label xml:lang="en">does not decrease chance of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -126,6 +132,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotIncrease">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotIncreasedBy"/>
+        <rdfs:label xml:lang="en">does not increase</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -136,6 +143,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotIncreaseChanceOf">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy"/>
+        <rdfs:label xml:lang="en">does not increase chance of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -146,6 +154,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotInfluence">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotAssociatedWith"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">does not influence</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -156,6 +165,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotMetabolize">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotMetabolizedBy"/>
+        <rdfs:label xml:lang="en">does not metabolize</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -166,6 +176,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotTransport">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/doesNotInfluence"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotTransportedBy"/>
+        <rdfs:label xml:lang="en">does not transport</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -176,6 +187,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/doesNotTreat">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotAssociatedWith"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isNotTreatedBy"/>
+        <rdfs:label xml:lang="en">does not treat</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -185,6 +197,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/hasChanceDecreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
+        <rdfs:label xml:lang="en">has chance decreased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -195,6 +208,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/hasChanceIncreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/increasesChanceOf"/>
+        <rdfs:label xml:lang="en">has chance increased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -204,6 +218,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/hasNotChanceDecreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">has not chance decreased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -213,6 +228,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/hasNotChanceIncreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">has not chance increased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -223,6 +239,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/increases">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isIncreasedBy"/>
+        <rdfs:label xml:lang="en">increases</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -232,6 +249,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/increasesChanceOf">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
+        <rdfs:label xml:lang="en">increases chance of</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -242,6 +260,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/influences">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isAssociatedWith"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
+        <rdfs:label xml:lang="en">influences</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -251,6 +270,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isAssociatedWith">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">is associated with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -260,6 +280,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isCausedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
+        <rdfs:label xml:lang="en">is caused by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -269,6 +290,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isDecreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
+        <rdfs:label xml:lang="en">is decreased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -278,6 +300,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isIncreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
+        <rdfs:label xml:lang="en">is increased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -287,6 +310,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isInfluencedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isAssociatedWith"/>
+        <rdfs:label xml:lang="en">is influenced by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -297,6 +321,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isMetabolizedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/metabolizes"/>
+        <rdfs:label xml:lang="en">is metabolized by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -306,6 +331,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotAssociatedWith">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:label xml:lang="en">is not associated with</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -315,6 +341,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotCausedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">is not caused by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -324,6 +351,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotDecreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">is not decreased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -333,6 +361,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotIncreasedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">is not increased by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -342,6 +371,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotInfluencedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotAssociatedWith"/>
+        <rdfs:label xml:lang="en">is not influenced by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -351,6 +381,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotMetabolizedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">is not metabolized by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -360,6 +391,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotTransportedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotInfluencedBy"/>
+        <rdfs:label xml:lang="en">is not transported by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -369,6 +401,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isNotTreatedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isNotAssociatedWith"/>
+        <rdfs:label xml:lang="en">is not treated by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -379,6 +412,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isTransportedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isInfluencedBy"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/transports"/>
+        <rdfs:label xml:lang="en">is transported by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -389,6 +423,7 @@
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/isTreatedBy">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isAssociatedWith"/>
         <owl:inverseOf rdf:resource="http://ns.inria.fr/pgxo/treats"/>
+        <rdfs:label xml:lang="en">is treated by</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -398,6 +433,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/metabolizes">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
+        <rdfs:label xml:lang="en">metabolizes</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -405,14 +441,18 @@
     <!-- http://ns.inria.fr/pgxo/qualifiedProxy -->
 
 
-    <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/qualifiedProxy"/>
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/qualifiedProxy">
+        <rdfs:label xml:lang="en">qualified proxy</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
     <!-- http://ns.inria.fr/pgxo/qualifiedVariation -->
 
 
-    <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/qualifiedVariation"/>
+    <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/qualifiedVariation">
+        <rdfs:label xml:lang="en">qualified variation</rdfs:label>
+    </owl:ObjectProperty>
     
 
 
@@ -421,6 +461,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/transports">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/influences"/>
+        <rdfs:label xml:lang="en">transports</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -430,6 +471,7 @@
 
     <owl:ObjectProperty rdf:about="http://ns.inria.fr/pgxo/treats">
         <rdfs:subPropertyOf rdf:resource="http://ns.inria.fr/pgxo/isAssociatedWith"/>
+        <rdfs:label xml:lang="en">treats</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -480,6 +522,7 @@
     <owl:DatatypeProperty rdf:about="http://ns.inria.fr/pgxo/clinPGxLevelOfEvidence">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://ns.inria.fr/pgxo/PharmacogenomicRelationship"/>
+        <rdfs:label xml:lang="en">level of evidence in ClinPGx</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -501,7 +544,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Disease">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/Phenotype"/>
-        <rdfs:label>Disease</rdfs:label>
+        <rdfs:label xml:lang="en">Disease</rdfs:label>
     </owl:Class>
     
 
@@ -510,7 +553,7 @@
 
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Drug">
-        <rdfs:label>Drug</rdfs:label>
+        <rdfs:label xml:lang="en">Drug</rdfs:label>
     </owl:Class>
     
 
@@ -520,7 +563,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Gene">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/GeneticFactor"/>
-        <rdfs:label>Gene</rdfs:label>
+        <rdfs:label xml:lang="en">Gene</rdfs:label>
     </owl:Class>
     
 
@@ -529,7 +572,7 @@
 
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/GeneticFactor">
-        <rdfs:label>Genetic factor</rdfs:label>
+        <rdfs:label xml:lang="en">Genetic factor</rdfs:label>
     </owl:Class>
     
 
@@ -539,7 +582,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/GenomicVariation">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/GeneticFactor"/>
-        <rdfs:label>Genomic variation</rdfs:label>
+        <rdfs:label xml:lang="en">Genomic variation</rdfs:label>
     </owl:Class>
     
 
@@ -549,7 +592,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Haplotype">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/GenomicVariation"/>
-        <rdfs:label>Haplotype</rdfs:label>
+        <rdfs:label xml:lang="en">Haplotype</rdfs:label>
     </owl:Class>
     
 
@@ -559,7 +602,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/PharmacodynamicPhenotype">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/Phenotype"/>
-        <rdfs:label>Pharmacodynamic phenotype</rdfs:label>
+        <rdfs:label xml:lang="en">Pharmacodynamic phenotype</rdfs:label>
     </owl:Class>
     
 
@@ -569,7 +612,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/PharmacogenomicRelationship">
         <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
-        <rdfs:label>Pharmacogenomic relationship</rdfs:label>
+        <rdfs:label xml:lang="en">Pharmacogenomic relationship</rdfs:label>
     </owl:Class>
     
 
@@ -579,7 +622,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/PharmacokineticPhenotype">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/Phenotype"/>
-        <rdfs:label>Pharmacokinetic phenotype</rdfs:label>
+        <rdfs:label xml:lang="en">Pharmacokinetic phenotype</rdfs:label>
     </owl:Class>
     
 
@@ -588,7 +631,7 @@
 
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Phenotype">
-        <rdfs:label>Phenotype</rdfs:label>
+        <rdfs:label xml:lang="en">Phenotype</rdfs:label>
     </owl:Class>
     
 
@@ -598,7 +641,7 @@
 
     <owl:Class rdf:about="http://ns.inria.fr/pgxo/Variant">
         <rdfs:subClassOf rdf:resource="http://ns.inria.fr/pgxo/GenomicVariation"/>
-        <rdfs:label>Variant</rdfs:label>
+        <rdfs:label xml:lang="en">Variant</rdfs:label>
     </owl:Class>
     
 
