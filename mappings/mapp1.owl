@@ -11,7 +11,7 @@
      xmlns:pgxo="http://ns.inria.fr/pgxo/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      xmlns:PO="http://sadi-ontology.semanticscience.org/pharmacogenomics-primitive-sadi.owl#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ns.inria.fr/pgxo/mappings/">
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.3</owl:versionInfo>
         <rdfs:comment>Mappings from PGxO to SO-PHARM, PO, PHARE and Genomic CDS.</rdfs:comment>

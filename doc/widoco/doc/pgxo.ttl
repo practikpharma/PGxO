@@ -7,10 +7,10 @@
 @base <http://ns.inria.fr/pgxo/> .
 
 <http://ns.inria.fr/pgxo/> rdf:type owl:Ontology ;
-                            <http://purl.org/dc/elements/1.1/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" ,
+                            <http://purl.org/dc/terms/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" ,
                                                                       "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" ,
                                                                       "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" ;
-                            <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by-nc/4.0/" ;
+                            <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" ;
                             rdfs:comment """- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/
 - Remove usage of DUL
 - Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"""@en ,
@@ -22,12 +22,12 @@
 #    Annotation properties
 #################################################################
 
-###  http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
 
 
-###  http://purl.org/dc/elements/1.1/license
-<http://purl.org/dc/elements/1.1/license> rdf:type owl:AnnotationProperty .
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
 
 
 #################################################################

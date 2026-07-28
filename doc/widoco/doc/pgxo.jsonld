@@ -1,14 +1,14 @@
 [ {
   "@id" : "http://ns.inria.fr/pgxo/",
   "@type" : [ "http://www.w3.org/2002/07/owl#Ontology" ],
-  "http://purl.org/dc/elements/1.1/creator" : [ {
+  "http://purl.org/dc/terms/creator" : [ {
     "@value" : "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)"
   }, {
     "@value" : "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)"
   }, {
     "@value" : "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)"
   } ],
-  "http://purl.org/dc/elements/1.1/license" : [ {
+  "http://purl.org/dc/terms/license" : [ {
     "@value" : "https://creativecommons.org/licenses/by-nc/4.0/"
   } ],
   "http://www.w3.org/2000/01/rdf-schema#comment" : [ {
@@ -603,10 +603,10 @@
     "@value" : "depends on"
   } ]
 }, {
-  "@id" : "http://purl.org/dc/elements/1.1/creator",
+  "@id" : "http://purl.org/dc/terms/creator",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
-  "@id" : "http://purl.org/dc/elements/1.1/license",
+  "@id" : "http://purl.org/dc/terms/license",
   "@type" : [ "http://www.w3.org/2002/07/owl#AnnotationProperty" ]
 }, {
   "@id" : "http://www.w3.org/ns/prov#Entity",

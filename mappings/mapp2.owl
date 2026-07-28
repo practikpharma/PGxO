@@ -11,7 +11,7 @@
      xmlns:pgxo="http://ns.inria.fr/pgxo/"
      xmlns:SNOMEDCT="http://purl.bioontology.org/ontology/SNOMEDCT/"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:dc="http://purl.org/dc/elements/1.1/">
+     xmlns:dc="http://purl.org/dc/terms/">
     <owl:Ontology rdf:about="http://ns.inria.fr/pgxo/mappings/">
         <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.2</owl:versionInfo>
         <rdfs:comment>Mappings from PGxO to MeSH, NCIt and SNOMED CT.</rdfs:comment>

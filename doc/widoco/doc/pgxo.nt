@@ -1,8 +1,8 @@
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" .
-<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" .
-<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/creator> "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" .
-<http://ns.inria.fr/pgxo/> <http://purl.org/dc/elements/1.1/license> "https://creativecommons.org/licenses/by-nc/4.0/" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Adrien Coulet (Inria, Inserm, Université Paris Cité, HeKA UMR1346, Paris, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Clément Jonquet (MISTEA, Université de Montpellier, Institut Agro, INRAE, Montpellier, France, and LIRMM, Université de Montpellier, Montpellier, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/creator> "Pierre Monnin (Université Côte d'Azur, Inria, CNRS, I3S, Sophia-Antipolis, France)" .
+<http://ns.inria.fr/pgxo/> <http://purl.org/dc/terms/license> "https://creativecommons.org/licenses/by-nc/4.0/" .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "- Move namespace from http://pgxo.loria.fr/ to http://ns.inria.fr/pgxo/\n- Remove usage of DUL\n- Add a new data property to connect pharmacogenomic relationships to their level of evidence in ClinPGx"@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#comment> "PGxO aims at providing a small set of concepts and roles that may type elements of pharmacogenomic relationships."@en .
 <http://ns.inria.fr/pgxo/> <http://www.w3.org/2000/01/rdf-schema#label> "PGxO: a lite Pharmacogenomic Ontology"@en .
@@ -16,11 +16,11 @@
 # #################################################################
 # 
 # 
-# http://purl.org/dc/elements/1.1/creator
-<http://purl.org/dc/elements/1.1/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
-# http://purl.org/dc/elements/1.1/license
-<http://purl.org/dc/elements/1.1/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
 # 
 # 
 # 
